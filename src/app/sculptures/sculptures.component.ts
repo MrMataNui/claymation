@@ -17,7 +17,7 @@ export class SculpturesComponent implements OnInit {
   queryAll = (item: string) => document.querySelectorAll(item);
   query = (item: string) => document.querySelector(item);
 
-  monthClick(event: MouseEvent) {
+  monthClick(event: any) {
     const getID = (item: string) => document.getElementById(item);
     const id = event.target.id;
     for (const datesItem of this.queryAll('#dates div')) {
@@ -30,7 +30,7 @@ export class SculpturesComponent implements OnInit {
     getID('months').children[id].classList.add('selected');
   }
 
-  yearChange(event: MouseEvent) {
+  yearChange(event: any) {
     const yearNum: Element = this.queryAll('#date2019 #year-num')[0];
     const date = event.target.id;
     const getYears = [2019, 2020];

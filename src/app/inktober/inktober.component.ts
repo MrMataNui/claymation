@@ -41,7 +41,7 @@ export class InktoberComponent implements OnInit {
     }
   }
 
-  inktoberClick(event: MouseEvent) {
+  inktoberClick(event: any) {
     const id: string = event.target.children[0]
       ? event.target.children[0].id
       : event.target.id;
