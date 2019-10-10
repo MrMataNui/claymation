@@ -1,0 +1,46 @@
+<link href="https://fonts.googleapis.com/css?family=Pacifico|Saira+Stencil+One&display=swap" rel="stylesheet" />
+<h1 id="header" class="pacifico">MrMataNui's Claymation Progress</h1>
+<hr /> <br />
+<div id="timeline">
+  <div id="Inktober-definition">
+    <h2>Inktober</h2>
+    <blockquote>Every October, artists all over the world take on the Inktober drawing challenge by doing one
+      ink drawing a day the entire month.</blockquote>
+    <span>- from <a href="https://inktober.com/" target="_blank">inktober.com</a></span>
+  </div>
+  <br />
+  <h2>Prompt list</h2>
+  <br />
+  <div id="AllWeeks">
+    <div *ngFor="let key of objectKeys(getWeeks)">
+      <br />
+      <h3 id="{{ key }}"> {{ weekNames(key) }} </h3>
+      <div class="{{ key }} Inktober flex">
+        <div *ngFor="let weekNum of getWeeks[key]">
+          <div id="day-{{ weekNum }}-Inktober" (click)="inktoberClick($event)">
+            <h3 id="Inktober-day-{{ weekNum }}"> {{ weekNum }} </h3>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <br />
+  <div id="description">
+    <div *ngFor="let key of objectKeys(prompts)">
+      <div class="{{ inktoberClasses(key) }}">
+        <p>{{ inktoberNames(key) }}: <q>{{ prompts[key].prompt }}</q></p>
+        <br />
+        <p>{{ prompts[key].description }}</p>
+        <br />
+        <div *ngIf="prompts[key].description">
+          <img id="Inktober-{{ prompts[key].prompt }}" alt="Inktober {{ prompts[key].prompt }}"
+            src="{{ prompts[key].imgSrc }}" />
+          <div *ngIf="prompts[key].imgSrc2">
+            <img id="Inktober-{{ prompts[key].prompt }}" alt="Inktober {{ prompts[key].prompt }} 2"
+              src="{{ prompts[key].imgSrc2 }}" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

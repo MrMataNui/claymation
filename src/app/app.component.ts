@@ -7,4 +7,6 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'claymation';
+  navLinks = ['Sculptures', 'Inktober' /* , 'Videos' */];
+  lowerCase = (item: string) => item.toLowerCase();
 }

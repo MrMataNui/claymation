@@ -1,0 +1,51 @@
+<link href="https://fonts.googleapis.com/css?family=Pacifico|Saira+Stencil+One&display=swap" rel="stylesheet" />
+<script src="https://code.jquery.com/jquery-1.8.3.min.js"></script>
+<h1 id="header" class="pacifico">MrMataNui's Claymation Progress</h1>
+<hr /> <br />
+<h2>This is where I go through my claymation progress.</h2>
+<div id="timeline">
+  <ul id="dates">
+    <li id="date2019">
+      <h2>Timeline</h2>
+      <span id="previous-year">« </span>
+      <span id="year-num">2019</span>
+      <span id="following-year"> »</span>
+      <ul>
+        <li *ngFor="let key of datesId.y2019">
+          <div *ngIf="key.selected; else notSelected" id="{{ key.id }}" (click)="monthClick($event)" class="selected">
+            {{ key.name }}
+          </div>
+          <ng-template #notSelected>
+            <div id="{{ key.id }}" (click)="monthClick($event)">
+              {{ key.name }}
+            </div>
+          </ng-template>
+        </li>
+      </ul>
+    </li>
+  </ul>
+  <ul id="months">
+    <ng-template ngFor let-key [ngForOf]="objectKeys(getMonths)">
+      <ng-template [ngIf]="key==='jan2019'" [ngIfElse]="monthNotSelected">
+        <li id="{{ monthId(key) }}" class="selected">
+          <h2> {{ getMonths[key][0].date }} </h2>
+          <p [innerHTML]="getMonths[key][0].desc"></p>
+          <img id="{{ getMonths[key][0].srcId }}" src="{{ getMonths[key][0].src }}" alt="" />
+        </li>
+      </ng-template>
+      <ng-template #monthNotSelected>
+        <li id="{{ monthId(key) }}">
+          <ng-template ngFor let-month [ngForOf]="getMonths[key]">
+            <h2>{{ month.date }}</h2>
+            <p [innerHTML]="month.desc"></p>
+            <img id="{{ month.srcId }}" src="{{ month.src }}" alt="" />
+            <ng-template [ngIf]="month.desc2">
+              <p [innerHTML]="month.desc2"></p>
+              <img id="{{ month.src2Id }}" src="{{ month.src2 }}" alt="" />
+            </ng-template>
+          </ng-template>
+        </li>
+      </ng-template>
+    </ng-template>
+  </ul>
+</div>
