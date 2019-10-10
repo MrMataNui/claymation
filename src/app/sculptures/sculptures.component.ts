@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { datesId, getMonths } from './description';
 
 @Component({
   selector: 'app-sculptures',
@@ -7,6 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SculpturesComponent implements OnInit {
   constructor() {}
+  objectKeys = Object.keys;
+  datesId = datesId;
+  getMonths = getMonths;
+
+  monthId = (item: string) => item.replace(/(\w+)(2019)/, '$2$1');
+
   queryAll = (item: string) => document.querySelectorAll(item);
   query = (item: string) => document.querySelector(item);
 
@@ -43,28 +50,5 @@ export class SculpturesComponent implements OnInit {
     yearNum.innerHTML = getNumber.toString();
   }
 
-  timelineLink() {
-    const months = [
-      { id: '2019jan', name: 'January', class: 'selected' },
-      { id: '2019mar', name: 'March' },
-      { id: '2019may', name: 'May' },
-      { id: '2019aug', name: 'August' },
-      { id: '2019sep', name: 'September' },
-      { id: '2019oct', name: 'Inktober', class: 'quotes' }
-    ];
-    let html = '';
-    // tslint:disable-next-line:forin
-    for (const i in months) {
-      // if () { `class="${months[i].class}"`; }
-      html += months[i].class
-        ? `<li> <div id="${months[i].id}" class="${months[i].class}" (click)="monthClick($event)"> ${months[i].name} </div> </li>`
-        : `<li> <div id="${months[i].id}" (click)="monthClick($event)"> ${months[i].name} </div> </li>`;
-    }
-    // this.query('#date2019 ul').innerHTML = html;
-    console.log('html', html);
-  }
-
-  ngOnInit() {
-    this.timelineLink();
-  }
+  ngOnInit() {}
 }

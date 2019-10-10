@@ -76,8 +76,8 @@ span[id$='-year'] {
 }
 
 #pineapple-man {
-  width: 70%;
-  height: 70%;
+  width: 50%;
+  height: 50%;
 }
 
 #pineapple-man2 {
@@ -95,15 +95,10 @@ span[id$='-year'] {
   height: 35%;
 }
 
-img#morgan,
 img[id^='sea-creature'],
-img[id^='Inktober'] {
+img[id$='morgan'] {
   width: 50%;
   height: 35%;
-}
-
-img[id^='Inktober'] {
-  width: 40%;
 }
 
 blockquote {
@@ -144,7 +139,6 @@ a,
 }
 
 #dates li div {
-  width: 70%;
   margin: 0 auto;
   cursor: pointer;
   border: 1px solid blueviolet;

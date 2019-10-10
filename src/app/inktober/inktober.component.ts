@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { prompts } from './descriptions';
 
 @Component({
   selector: 'app-inktober',
@@ -6,19 +7,38 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./inktober.component.css']
 })
 export class InktoberComponent implements OnInit {
+  constructor() {}
+  objectKeys = Object.keys;
+  prompts = prompts;
+  getWeeks = {
+    Week1: [1, 2, 3, 4, 5, 6, 7],
+    Week2: [8, 9, 10, 11, 12, 13, 14]
+    // Week3: [15, 16, 17, 18, 19, 20, 21],
+    // Week4: [22, 23, 24, 25, 26, 27, 28],
+    // Week5: [29, 30, 31]
+  };
 
-  constructor() { }
-  weeks = 2;
   queryAll = (item: string) => document.querySelectorAll(item);
-  query = (item: string) => document.querySelector(item);
 
-  inktoberImg(location: Element, max: number, getPlace: string[]) {
-    let length = 0;
-    for (let i = 0; i < max; i++) {
-      const locationID = getPlace[0] + (i + 1) + getPlace[1];
-      if (locationID !== `#${location.id}`) { length++; }
+  inktoberClasses = (item: string) =>
+    item.replace(/day(\d+)/, 'Inktober-day-$1');
+
+  inktoberNames = (item: string) =>
+    item.replace(/day(\d+)/, 'The prompt for day $1');
+
+  weekNames(name: string) {
+    switch (name) {
+      case 'Week1':
+        return 'Week 1';
+      case 'Week2':
+        return 'Week 2';
+      case 'Week3':
+        return 'Week 3';
+      case 'Week4':
+        return 'Week 4';
+      case 'Week5':
+        return 'Week 5';
     }
-    if (length === max) { location.style.display = 'none'; }
   }
 
   inktoberClick(event: MouseEvent) {
@@ -27,32 +47,13 @@ export class InktoberComponent implements OnInit {
       : event.target.id;
 
     let getItem: Element;
-    for (getItem of this.queryAll('[class^=Inktober-day]')) { getItem.classList.remove('selected'); }
-    for (getItem of this.queryAll(`div.${id}`)) { getItem.classList.add('selected'); }
-  }
-
-  findWeeks(id: string) {
-    const findID = this.query(`#${id}`);
-    const br = document.createElement('br');
-    let weekRegex: RegExp;
-    for (let i = 0; i < this.weeks; i++) {
-      weekRegex = RegExp(`^Week${i + 1}`);
-      if (weekRegex.test(id)) {
-        const parent = findID.parentNode;
-        parent.insertBefore(br, findID);
-      }
+    for (getItem of this.queryAll('[class^=Inktober-day]')) {
+      getItem.classList.remove('selected');
+    }
+    for (getItem of this.queryAll(`div.${id}`)) {
+      getItem.classList.add('selected');
     }
   }
 
-  ngOnInit() {
-    let getItem: Element;
-    for (getItem of this.queryAll('[id^=Week]')) {
-      this.findWeeks(getItem.id);
-      this.inktoberImg(getItem, this.weeks, ['#Week', '']);
-    }
-    for (getItem of this.queryAll('[id$=Inktober]')) {
-      this.inktoberImg(getItem, this.weeks * 7, ['#day-', '-Inktober']);
-    }
-  }
-
+  ngOnInit() {}
 }

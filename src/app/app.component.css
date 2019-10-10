@@ -1,13 +1,13 @@
 body {
-	background: #222;
-	font-family: Georgia, serif;
-	color: #fff;
-	font-size: 14px;
-	width: 70%;
-	margin: 0 auto;
-	text-align: center;
-	margin-top: 1em !important;
-	padding: 2%;
+  background: #222;
+  font-family: Georgia, serif;
+  color: #fff;
+  font-size: 14px;
+  width: 70%;
+  margin: 0 auto;
+  text-align: center;
+  margin-top: 1em !important;
+  padding: 2%;
 }
 
 nav {

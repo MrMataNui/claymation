@@ -9,9 +9,7 @@
   </head>
   <body>
     <nav>
-      <a routerLink="/sculptures" routerLinkActive="active">Sculptures</a>
-      <a routerLink="/inktober" routerLinkActive="active">Inktober</a>
-      <a routerLink="/videos" routerLinkActive="active">Videos</a>
+      <a *ngFor="let key of navLinks" routerLink="/{{ lowerCase(key) }}" routerLinkActive="active">{{ key }}</a>
     </nav>
     <router-outlet></router-outlet>
   </body>

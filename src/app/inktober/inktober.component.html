@@ -12,288 +12,34 @@
   <h2>Prompt list</h2>
   <br />
   <div id="AllWeeks">
-    <h3 id="Week1">Week 1</h3>
-    <div class="Week1 Inktober flex">
-      <div id="day-1-Inktober" (click)="inktoberClick($event)">
-        <h3 id="Inktober-day-1">1</h3>
-      </div>
-      <div id="day-2-Inktober" (click)="inktoberClick($event)">
-        <h3 id="Inktober-day-2">2</h3>
-      </div>
-      <div id="day-3-Inktober" (click)="inktoberClick($event)">
-        <h3 id="Inktober-day-3">3</h3>
-      </div>
-      <div id="day-4-Inktober" (click)="inktoberClick($event)">
-        <h3 id="Inktober-day-4">4</h3>
-      </div>
-      <div id="day-5-Inktober" (click)="inktoberClick($event)">
-        <h3 id="Inktober-day-5">5</h3>
-      </div>
-      <div id="day-6-Inktober" (click)="inktoberClick($event)">
-        <h3 id="Inktober-day-6">6</h3>
-      </div>
-      <div id="day-7-Inktober" (click)="inktoberClick($event)">
-        <h3 id="Inktober-day-7">7</h3>
-      </div>
-    </div>
-    <h3 id="Week2">Week 2</h3>
-    <div class="Week2 Inktober flex">
-      <div id="day-8-Inktober" (click)="inktoberClick($event)">
-        <h3 id="Inktober-day-8">8</h3>
-      </div>
-      <div id="day-9-Inktober" (click)="inktoberClick($event)">
-        <h3 id="Inktober-day-9">9</h3>
-      </div>
-      <div id="day-10-Inktober" (click)="inktoberClick($event)">
-        <h3 id="Inktober-day-10">10</h3>
-      </div>
-      <div id="day-11-Inktober" (click)="inktoberClick($event)">
-        <h3 id="Inktober-day-11">11</h3>
-      </div>
-      <div id="day-12-Inktober" (click)="inktoberClick($event)">
-        <h3 id="Inktober-day-12">12</h3>
-      </div>
-      <div id="day-13-Inktober" (click)="inktoberClick($event)">
-        <h3 id="Inktober-day-13">13</h3>
-      </div>
-      <div id="day-14-Inktober" (click)="inktoberClick($event)">
-        <h3 id="Inktober-day-14">14</h3>
-      </div>
-    </div>
-    <h3 id="Week3">Week 3</h3>
-    <div class="Week3 Inktober flex">
-      <div id="day-15-Inktober" (click)="inktoberClick($event)">
-        <h3 id="Inktober-day-15">15</h3>
-      </div>
-      <div id="day-16-Inktober" (click)="inktoberClick($event)">
-        <h3 id="Inktober-day-16">16</h3>
-      </div>
-      <div id="day-17-Inktober" (click)="inktoberClick($event)">
-        <h3 id="Inktober-day-17">17</h3>
-      </div>
-      <div id="day-18-Inktober" (click)="inktoberClick($event)">
-        <h3 id="Inktober-day-18">18</h3>
-      </div>
-      <div id="day-19-Inktober" (click)="inktoberClick($event)">
-        <h3 id="Inktober-day-19">19</h3>
-      </div>
-      <div id="day-20-Inktober" (click)="inktoberClick($event)">
-        <h3 id="Inktober-day-20">20</h3>
-      </div>
-      <div id="day-21-Inktober" (click)="inktoberClick($event)">
-        <h3 id="Inktober-day-21">21</h3>
-      </div>
-    </div>
-    <h3 id="Week4">Week 4</h3>
-    <div class="Week4 Inktober flex">
-      <div id="day-22-Inktober" (click)="inktoberClick($event)">
-        <h3 id="Inktober-day-22">22</h3>
-      </div>
-      <div id="day-23-Inktober" (click)="inktoberClick($event)">
-        <h3 id="Inktober-day-23">23</h3>
-      </div>
-      <div id="day-24-Inktober" (click)="inktoberClick($event)">
-        <h3 id="Inktober-day-24">24</h3>
-      </div>
-      <div id="day-25-Inktober" (click)="inktoberClick($event)">
-        <h3 id="Inktober-day-25">25</h3>
-      </div>
-      <div id="day-26-Inktober" (click)="inktoberClick($event)">
-        <h3 id="Inktober-day-26">26</h3>
-      </div>
-      <div id="day-27-Inktober" (click)="inktoberClick($event)">
-        <h3 id="Inktober-day-27">27</h3>
-      </div>
-      <div id="day-28-Inktober" (click)="inktoberClick($event)">
-        <h3 id="Inktober-day-28">28</h3>
-      </div>
-    </div>
-    <h3 id="Week5">Week 5</h3>
-    <div class="Week5 Inktober flex">
-      <div id="day-29-Inktober" (click)="inktoberClick($event)">
-        <h3 id="Inktober-day-29">29</h3>
-      </div>
-      <div id="day-30-Inktober" (click)="inktoberClick($event)">
-        <h3 id="Inktober-day-30">30</h3>
-      </div>
-      <div id="day-31-Inktober" (click)="inktoberClick($event)">
-        <h3 id="Inktober-day-31">31</h3>
+    <div *ngFor="let key of objectKeys(getWeeks)">
+      <br />
+      <h3 id="{{ key }}"> {{ weekNames(key) }} </h3>
+      <div class="{{ key }} Inktober flex">
+        <div *ngFor="let weekNum of getWeeks[key]">
+          <div id="day-{{ weekNum }}-Inktober" (click)="inktoberClick($event)">
+            <h3 id="Inktober-day-{{ weekNum }}"> {{ weekNum }} </h3>
+          </div>
+        </div>
       </div>
     </div>
   </div>
   <br />
   <div id="description">
-    <div class="Week1">
-      <div class="Inktober-day-1">
-        <p>The prompt for day 1: <q>Ring</q></p>
-        <p>I had used this to improve sculpting hands (and wrists to an extent) and trying to add smaller
-          details.</p>
-        <img id="Inktober-ring" alt="Inktober Ring" src="./assets/images/Inktober/2019_Inktober_Day_1_Ring.jpg" />
-      </div>
-      <div class="Inktober-day-2">
-        <p>The prompt for day 2: <q>Mindless</q></p>
-        <p>I had used this to improve sculpting heads and trying different eye shapes.</p>
-        <img id="Inktober-mindless" alt="Inktober Mindless"
-          src="./assets/images/Inktober/2019_Inktober_Day_2_Mindless.jpg" />
-      </div>
-      <div class="Inktober-day-3">
-        <p>The prompt for day 3: <q>Bait</q></p>
-        <p>I tried to play off the phrase <q>bait and switch</q> byhaving a Nintendo Switch as bait.</p>
-        <img id="Inktober-bait" alt="Inktober Bait" src="./assets/images/Inktober/2019_Inktober_Day_3_Bait.jpg" />
-      </div>
-      <div class="Inktober-day-4">
-        <p>The prompt for day 4: <q>Freeze</q></p>
-        <p>I tried doing a stopwatch.</p>
-        <img id="Inktober-freeze" alt="Inktober Freeze" src="./assets/images/Inktober/2019_Inktober_Day_4_Freeze.jpg" />
-      </div>
-      <div class="Inktober-day-5">
-        <p>The prompt for day 5: <q>Build</q></p>
-        <p>I just went with Mario Maker because I couldn't think of anything else that I could do at my skill
-          level.</p>
-        <img id="Inktober-build" alt="Inktober Build" src="./assets/images/Inktober/2019_Inktober_Day_5_Build.jpg" />
-      </div>
-      <div class="Inktober-day-6">
-        <p>The prompt for day 6: <q>Husky</q></p>
-        <p>I couldn't think of a convincing way to do <q>Husky</q>, so I just did these two.</p>
-        <img id="Inktober-husky" alt="Inktober Husky 1"
-          src="./assets/images/Inktober/2019_Inktober_Day_6_Husky_1.jpg" />
+    <div *ngFor="let key of objectKeys(prompts)">
+      <div class="{{ inktoberClasses(key) }}">
+        <p>{{ inktoberNames(key) }}: <q>{{ prompts[key].prompt }}</q></p>
         <br />
-        <img id="Inktober-husky" alt="Inktober Husky 2"
-          src="./assets/images/Inktober/2019_Inktober_Day_6_Husky_2.jpg" />
-      </div>
-      <div class="Inktober-day-7">
-        <p>The prompt for day 7: <q>Enchanted</q></p>
-        <p>I decided to do a Spellbook as a practice for books and having them be propped up.</p>
-        <img id="Inktober-enchanted" alt="Inktober Enchanted"
-          src="./assets/images/Inktober/2019_Inktober_Day_7_Enchanted.jpg" />
-      </div>
-    </div>
-    <div class="Week2">
-      <div class="Inktober-day-8">
-        <p>The prompt for day 8: <q>Frail</q></p>
-        <p> </p>
-        <!-- <img id="Inktober-ring" alt="Inktober Ring" src="./assets/images/Inktober/2019_Inktober_Day_8_Frail.jpg" /> -->
-      </div>
-      <div class="Inktober-day-9">
-        <p>The prompt for day 9: <q>Swing</q></p>
-        <p> </p>
-        <!-- <img id="Inktober-mindless" alt="Inktober Mindless" src="./assets/images/Inktober/2019_Inktober_Day_9_Swing.jpg" /> -->
-      </div>
-      <div class="Inktober-day-10">
-        <p>The prompt for day 10: <q>Pattern</q></p>
-        <p> </p>
-        <!-- <img id="Inktober-bait" alt="Inktober Bait" src="./assets/images/Inktober/2019_Inktober_Day_10_Pattern.jpg" /> -->
-      </div>
-      <div class="Inktober-day-11">
-        <p>The prompt for day 11: <q>Snow</q></p>
-        <p> </p>
-        <!-- <img id="Inktober-freeze" alt="Inktober Freeze" src="./assets/images/Inktober/2019_Inktober_Day_11_Snow.jpg" /> -->
-      </div>
-      <div class="Inktober-day-12">
-        <p>The prompt for day 12: <q>Dragon</q></p>
-        <p> </p>
-        <!-- <img id="Inktober-build" alt="Inktober Build" src="./assets/images/Inktober/2019_Inktober_Day_12_Dragon.jpg" /> -->
-      </div>
-      <div class="Inktober-day-13">
-        <p>The prompt for day 13: <q>Ash</q></p>
-        <p> </p>
-        <!-- <img id="Inktober-husky" alt="Inktober Husky" src="./assets/images/Inktober/2019_Inktober_Day_13_Ash.jpg" /> -->
-      </div>
-      <div class="Inktober-day-14">
-        <p>The prompt for day 14: <q>Overgrown</q></p>
-        <p> </p>
-        <!-- <img id="Inktober-enchanted" alt="Inktober Enchanted" src="./assets/images/Inktober/2019_Inktober_Day_14_Overgrown.jpg" /> -->
-      </div>
-    </div>
-    <div class="Week3">
-      <div class="Inktober-day-15">
-        <p>The prompt for day 15: <q>Legend</q></p>
-        <p> </p>
-        <!-- <img id="Inktober-ring" alt="Inktober Ring" src="./assets/images/Inktober/2019_Inktober_Day_15_Legend.jpg" /> -->
-      </div>
-      <div class="Inktober-day-16">
-        <p>The prompt for day 16: <q>Wild</q></p>
-        <p> </p>
-        <!-- <img id="Inktober-mindless" alt="Inktober Mindless" src="./assets/images/Inktober/2019_Inktober_Day_16_Wild.jpg" /> -->
-      </div>
-      <div class="Inktober-day-17">
-        <p>The prompt for day 17: <q>Ornament</q></p>
-        <p> </p>
-        <!-- <img id="Inktober-bait" alt="Inktober Bait" src="./assets/images/Inktober/2019_Inktober_Day_17_Ornament.jpg" /> -->
-      </div>
-      <div class="Inktober-day-18">
-        <p>The prompt for day 18: <q>Misfit</q></p>
-        <p> </p>
-        <!-- <img id="Inktober-freeze" alt="Inktober Freeze" src="./assets/images/Inktober/2019_Inktober_Day_18_Misfit.jpg" /> -->
-      </div>
-      <div class="Inktober-day-19">
-        <p>The prompt for day 19: <q>Sling</q></p>
-        <p> </p>
-        <!-- <img id="Inktober-build" alt="Inktober Build" src="./assets/images/Inktober/2019_Inktober_Day_19_Sling.jpg" /> -->
-      </div>
-      <div class="Inktober-day-20">
-        <p>The prompt for day 20: <q>Tread</q></p>
-        <p> </p>
-        <!-- <img id="Inktober-build" alt="Inktober Build" src="./assets/images/Inktober/2019_Inktober_Day_20_Tread.jpg" /> -->
-      </div>
-      <div class="Inktober-day-21">
-        <p>The prompt for day 21: <q>Treasure</q></p>
-        <p> </p>
-        <!-- <img id="Inktober-husky" alt="Inktober Husky" src="./assets/images/Inktober/2019_Inktober_Day_21_Treasure.jpg" /> -->
-      </div>
-    </div>
-    <div class="Week4">
-      <div class="Inktober-day-22">
-        <p>The prompt for day 22: <q>Ghost</q></p>
-        <p> </p>
-        <!-- <img id="Inktober-enchanted" alt="Inktober Enchanted" src="./assets/images/Inktober/2019_Inktober_Day_22_Ghost.jpg" /> -->
-      </div>
-      <div class="Inktober-day-23">
-        <p>The prompt for day 23: <q>Ancient</q></p>
-        <p> </p>
-        <!-- <img id="Inktober-ring" alt="Inktober Ring" src="./assets/images/Inktober/2019_Inktober_Day_23_Ancient.jpg" /> -->
-      </div>
-      <div class="Inktober-day-24">
-        <p>The prompt for day 24: <q>Dizzy</q></p>
-        <p> </p>
-        <!-- <img id="Inktober-mindless" alt="Inktober Mindless" src="./assets/images/Inktober/2019_Inktober_Day_24_Dizzy.jpg" /> -->
-      </div>
-      <div class="Inktober-day-25">
-        <p>The prompt for day 25: <q>Tasty</q></p>
-        <p> </p>
-        <!-- <img id="Inktober-bait" alt="Inktober Bait" src="./assets/images/Inktober/2019_Inktober_Day_25_Tasty.jpg" /> -->
-      </div>
-      <div class="Inktober-day-26">
-        <p>The prompt for day 26: <q>Dark</q></p>
-        <p> </p>
-        <!-- <img id="Inktober-freeze" alt="Inktober Freeze" src="./assets/images/Inktober/2019_Inktober_Day_26_Dark.jpg" /> -->
-      </div>
-      <div class="Inktober-day-27">
-        <p>The prompt for day 27: <q>Coat</q></p>
-        <p> </p>
-        <!-- <img id="Inktober-build" alt="Inktober Build" src="./assets/images/Inktober/2019_Inktober_Day_27_Coat.jpg" /> -->
-      </div>
-      <div class="Inktober-day-28">
-        <p>The prompt for day 28: <q>Ride</q></p>
-        <p> </p>
-        <!-- <img id="Inktober-husky" alt="Inktober Husky" src="./assets/images/Inktober/2019_Inktober_Day_28_Ride.jpg" /> -->
-      </div>
-    </div>
-    <div class="Week5">
-      <div class="Inktober-day-29">
-        <p>The prompt for day 29: <q>Injured</q></p>
-        <p> </p>
-        <!-- <img id="Inktober-enchanted" alt="Inktober Enchanted" src="./assets/images/Inktober/2019_Inktober_Day_29_Injured.jpg" /> -->
-      </div>
-      <div class="Inktober-day-30">
-        <p>The prompt for day 30: <q>Catch</q></p>
-        <p> </p>
-        <!-- <img id="Inktober-ring" alt="Inktober Ring" src="./assets/images/Inktober/2019_Inktober_Day_30_Catch.jpg" /> -->
-      </div>
-      <div class="Inktober-day-31">
-        <p>The prompt for day 31: <q>Ripe</q></p>
-        <p> </p>
-        <!-- <img id="Inktober-mindless" alt="Inktober Mindless" src="./assets/images/Inktober/2019_Inktober_Day_31_Ripe.jpg" /> -->
+        <p>{{ prompts[key].description }}</p>
+        <br />
+        <div *ngIf="prompts[key].description">
+          <img id="Inktober-{{ prompts[key].prompt }}" alt="Inktober {{ prompts[key].prompt }}"
+            src="{{ prompts[key].imgSrc }}" />
+          <div *ngIf="prompts[key].imgSrc2">
+            <img id="Inktober-{{ prompts[key].prompt }}" alt="Inktober {{ prompts[key].prompt }} 2"
+              src="{{ prompts[key].imgSrc2 }}" />
+          </div>
+        </div>
       </div>
     </div>
   </div>
