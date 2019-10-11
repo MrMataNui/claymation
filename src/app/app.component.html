@@ -11,6 +11,9 @@
     <nav>
       <a *ngFor="let key of navLinks" routerLink="/{{ lowerCase(key) }}" routerLinkActive="active">{{ key }}</a>
     </nav>
+    <link href="https://fonts.googleapis.com/css?family=Pacifico|Saira+Stencil+One&display=swap" rel="stylesheet" />
+    <h1 id="header" class="pacifico">MrMataNui's Claymation Progress</h1>
+    <hr /> <br />
     <router-outlet></router-outlet>
   </body>
 </html>

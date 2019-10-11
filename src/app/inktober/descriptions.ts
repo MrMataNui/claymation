@@ -1,7 +1,18 @@
-const baseSrc = (day: number, name: string) =>
+const baseSrc = (day: number, name: string): string =>
   `assets/images/Inktober/2019_Inktober_Day_${day}_${name}.jpg`;
 
-export const prompts = {
+interface PromptDays {
+  prompt: string;
+  description: string;
+  imgSrc: string;
+  imgSrc2?: string;
+}
+
+interface AllPrompts {
+  [propName: string]: PromptDays;
+}
+
+export const prompts: AllPrompts = {
   day1: {
     prompt: 'Ring',
     description:
@@ -28,13 +39,13 @@ export const prompts = {
   day5: {
     prompt: 'Build',
     description:
-      "I just went with Mario Maker because I couldn't think of anything else that I could do at my skill level.",
+      'I just went with Mario Maker because I couldn\'t think of anything else that I could do at my skill level.',
     imgSrc: baseSrc(5, 'Build')
   },
   day6: {
     prompt: 'Husky',
     description:
-      "I couldn't think of a convincing way to do Husky, so I just did these two.",
+      'I couldn\'t think of a convincing way to do Husky, so I just did these two.',
     imgSrc: 'assets/images/Inktober/2019_Inktober_Day_6_Husky_1.jpg',
     imgSrc2: 'assets/images/Inktober/2019_Inktober_Day_6_Husky_2.jpg'
   },

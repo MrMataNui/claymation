@@ -26,6 +26,14 @@ nav a {
   border-right: 1px solid white;
 }
 
+.pacifico {
+  font-family: 'Pacifico', cursive;
+}
+
+.saira-stencil {
+  font-family: 'Saira Stencil One', cursive;
+}
+
 .dropdown {
   float: left;
   overflow: hidden;

@@ -7,14 +7,6 @@
   height: 2.5em;
 }
 
-.pacifico {
-  font-family: 'Pacifico', cursive;
-}
-
-.saira-stencil {
-  font-family: 'Saira Stencil One', cursive;
-}
-
 .flex {
   display: flex;
 }
@@ -101,27 +93,16 @@ img[id$='morgan'] {
   height: 35%;
 }
 
-blockquote {
-  background: #555;
-  color: #aaa;
-  border-left: 10px solid #ccc;
-  margin: 1.5em 10px;
-  padding: 0.5em 10px;
-  quotes: '“' '”';
-}
-
 q,
 .quotes {
-  quotes: '‘' '’';
+  quotes: '\2018''\2019';
 }
 
-blockquote::before,
 q::before,
 .quotes::before {
   content: open-quote;
 }
 
-blockquote::after,
 q::after,
 .quotes::after {
   content: close-quote;

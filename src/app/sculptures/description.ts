@@ -1,4 +1,27 @@
-export const datesId = {
+interface AllDates {
+  y2019: { id: string; name: string; selected?: boolean }[];
+  y2020?: { id: string; name: string; selected?: boolean }[];
+}
+
+interface MonthFind {
+  date: string;
+  desc: string;
+  src: string;
+  srcId: string;
+  desc2?: string;
+  src2?: string;
+  src2Id?: string;
+}
+
+interface GetMonths {
+  jan2019: MonthFind[];
+  mar2019: MonthFind[];
+  may2019: MonthFind[];
+  aug2019: MonthFind[];
+  sep2019: MonthFind[];
+}
+
+export const datesId: AllDates = {
   y2019: [
     { id: '2019jan', name: 'January', selected: true },
     { id: '2019mar', name: 'March' },
@@ -7,9 +30,10 @@ export const datesId = {
     { id: '2019sep', name: 'September' }
   ]
 };
+
 const baseSrc = (name: string) => `assets/images/${name}.jpg`;
 
-export const getMonths = {
+export const getMonths: GetMonths = {
   jan2019: [
     {
       date: 'January 28',
