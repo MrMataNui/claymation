@@ -56,7 +56,7 @@ export const prompts = {
   },
   day10: {
     prompt: 'Pattern',
-    description: '',
+    description: 'I was going for a plaid design',
     imgSrc: baseSrc(10, 'Pattern')
   },
   day11: {
