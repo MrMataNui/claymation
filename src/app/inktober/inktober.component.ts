@@ -20,26 +20,9 @@ export class InktoberComponent implements OnInit {
 
   queryAll = (item: string) => document.querySelectorAll(item);
 
-  inktoberClasses = (item: string) =>
-    item.replace(/day(\d+)/, 'Inktober-day-$1');
-
-  inktoberNames = (item: string) =>
-    item.replace(/day(\d+)/, 'The prompt for day $1');
-
-  weekNames(name: string) {
-    switch (name) {
-      case 'Week1':
-        return 'Week 1';
-      case 'Week2':
-        return 'Week 2';
-      case 'Week3':
-        return 'Week 3';
-      case 'Week4':
-        return 'Week 4';
-      case 'Week5':
-        return 'Week 5';
-    }
-  }
+  inktoberClasses = (item: string): string => item.replace(/day(\d+)/, 'Inktober-day-$1');
+  inktoberNames = (item: string): string => item.replace(/day(\d+)/, 'The prompt for day $1');
+  weekNames = (name: string): string => name.replace(/(Week)(\d+)/, '$1 $2');
 
   inktoberClick(event: any) {
     const id: string = event.target.children[0]
@@ -47,12 +30,8 @@ export class InktoberComponent implements OnInit {
       : event.target.id;
 
     let getItem: Element;
-    for (getItem of this.queryAll('[class^=Inktober-day]')) {
-      getItem.classList.remove('selected');
-    }
-    for (getItem of this.queryAll(`div.${id}`)) {
-      getItem.classList.add('selected');
-    }
+    for (getItem of this.queryAll('[class^=Inktober-day]')) { getItem.classList.remove('selected'); }
+    for (getItem of this.queryAll(`div.${id}`)) { getItem.classList.add('selected'); }
   }
 
   ngOnInit() {}

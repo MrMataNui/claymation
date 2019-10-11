@@ -11,11 +11,11 @@
   <div id="AllWeeks">
     <ng-template ngFor let-key [ngForOf]="objectKeys(getWeeks)">
       <br />
-      <h3 id="{{ key }}"> {{ weekNames(key) }} </h3>
-      <div class="{{ key }} Inktober flex">
+      <h3 id="{{key}}"> {{ weekNames(key) }} </h3>
+      <div class="{{key}} Inktober flex">
         <div *ngFor="let weekNum of getWeeks[key]">
-          <div id="day-{{ weekNum }}-Inktober" (click)="inktoberClick($event)">
-            <h3 id="Inktober-day-{{ weekNum }}"> {{ weekNum }} </h3>
+          <div id="day-{{weekNum}}-Inktober" (click)="inktoberClick($event)">
+            <h3 id="Inktober-day-{{weekNum}}"> {{ weekNum }} </h3>
           </div>
         </div>
       </div>
@@ -24,17 +24,17 @@
   <br />
   <div id="description">
     <ng-template ngFor let-key [ngForOf]="objectKeys(prompts)">
-      <div class="{{ inktoberClasses(key) }}">
+      <div class="{{inktoberClasses(key)}}">
         <p>{{ inktoberNames(key) }}: <q>{{ prompts[key].prompt }}</q></p>
         <br />
         <p [innerHTML]="prompts[key].description"></p>
         <br />
         <ng-template [ngIf]="prompts[key].description">
-          <img id="Inktober-{{ prompts[key].prompt }}" alt="Inktober {{ prompts[key].prompt }}"
-            src="{{ prompts[key].imgSrc }}" />
+          <img id="Inktober-{{prompts[key].prompt}}" alt="Inktober {{prompts[key].prompt}}"
+            src="{{prompts[key].imgSrc}}" />
           <ng-template [ngIf]="prompts[key].imgSrc2">
-            <img id="Inktober-{{ prompts[key].prompt }}" alt="Inktober {{ prompts[key].prompt }} 2"
-              src="{{ prompts[key].imgSrc2 }}" />
+            <img id="Inktober-{{prompts[key].prompt}}" alt="Inktober {{prompts[key].prompt}} 2"
+              src="{{prompts[key].imgSrc2}}" />
           </ng-template>
         </ng-template>
       </div>

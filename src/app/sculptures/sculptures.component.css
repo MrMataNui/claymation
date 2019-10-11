@@ -1,25 +1,10 @@
-* {
-  margin: 0;
-  padding: 0;
-}
+* { margin: 0; padding: 0; }
 
-#date2019 h2 {
-  height: 2.5em;
-}
+#date2019 h2 { height: 2.5em; }
 
-.flex {
-  display: flex;
-}
-
-.clearfix {
-  overflow: auto;
-  zoom: 1;
-}
-
-.container {
-  display: -webkit-flex;
-  display: flex;
-}
+.flex { display: flex; }
+.clearfix { overflow: auto; zoom: 1; }
+.container { display: -webkit-flex; display: flex; }
 
 .initial {
   -webkit-flex: initial;
@@ -34,83 +19,27 @@
   width: 200px;
 }
 
-.flex1 {
-  -webkit-flex: 1;
-  flex: 1;
-}
-.flex2 {
-  -webkit-flex: 2;
-  flex: 2;
-}
+.flex1 { -webkit-flex: 1; flex: 1; }
+.flex2 { -webkit-flex: 2; flex: 2; }
 
-span[id$='-year'] {
-  font-size: 120%;
-}
-
-[id^='Inktober-day'] {
-  width: 70%;
-  margin: 0 auto;
-}
-[id$='-Inktober'] {
-  cursor: pointer;
-  padding: 0 15px;
-}
-
-#dates div[id^='2019']:hover,
-[id$='-Inktober']:hover {
-  border: 1px solid white;
-}
+span[id$='-year'] { font-size: 120%; }
+#dates div[id^='2019']:hover { border: 1px solid white; }
 
 /* #previous-year:hover, #following-year:hover { color: #FF0; cursor: pointer; } */
-#ice-climbers {
-  width: 100%;
-  height: 50%;
-}
+#ice-climbers { width: 100%; height: 50%; }
+#pineapple-man { width: 50%; height: 50%; }
+#pineapple-man2 { width: 35%; height: 50%; }
+#sir-pine { width: 35%; height: 35%; }
 
-#pineapple-man {
-  width: 50%;
-  height: 50%;
-}
+[id^='four-armed-test'] { width: 40%; height: 35%; }
+img[id^='sea-creature'], img[id$='morgan'] { width: 50%; height: 35%; }
 
-#pineapple-man2 {
-  width: 35%;
-  height: 50%;
-}
+q, .quotes { quotes: '\2018''\2019'; }
+q::before, .quotes::before { content: open-quote; }
+q::after, .quotes::after { content: close-quote; }
 
-#sir-pine {
-  width: 35%;
-  height: 35%;
-}
-
-[id^='four-armed-test'] {
-  width: 40%;
-  height: 35%;
-}
-
-img[id^='sea-creature'],
-img[id$='morgan'] {
-  width: 50%;
-  height: 35%;
-}
-
-q,
-.quotes {
-  quotes: '\2018''\2019';
-}
-
-q::before,
-.quotes::before {
-  content: open-quote;
-}
-
-q::after,
-.quotes::after {
-  content: close-quote;
-}
-
-a,
-#dates li div {
-  color: #ffc;
+a, #dates li div {
+  color: #FFC;
   text-decoration: none;
   -webkit-transition: 0.5s;
   -moz-transition: 0.5s;
@@ -131,27 +60,18 @@ a:hover,
 a.selected,
 #dates li div:hover,
 #dates li div.selected {
-  color: #fc0;
+  color: #FC0;
 }
 
-h1,
-h2,
-h4,
-h5,
-h6 {
+h1, h2, h4, h5, h6 {
   text-align: center;
-  color: #ccc;
+  color: #CCC;
   text-shadow: #000 1px 1px 2px;
   margin-bottom: 5px;
 }
 
-h1 {
-  font-size: 18px;
-}
-
-h2 {
-  font-size: 14px;
-}
+h1 { font-size: 18px; }
+h2 { font-size: 14px; }
 
 .sociales {
   text-align: center;
@@ -164,7 +84,6 @@ h2 {
   margin: 40px auto;
   position: relative;
 }
-/* background: url('http://www.csslab.cl/ejemplos/timelinr/latest/images/dot.gif') 3px top repeat-y; */
 
 #dates {
   width: 20em;
@@ -178,22 +97,17 @@ h2 {
   line-height: 100px;
   font-size: 24px;
 }
-/* background: url('http://www.csslab.cl/ejemplos/timelinr/latest/images/biggerdot.png') left center no-repeat; */
 
-#dates a,
-#dates div {
+#dates a, #dates div {
   line-height: 38px;
   padding-bottom: 10px;
 }
 
-li#date2019,
-#dates .selected {
-  font-size: 38px;
-}
+li#date2019, #dates .selected { font-size: 38px; }
 
 li#date2019 {
   width: 8em;
-  color: #c0f;
+  color: #C0F;
 }
 
 #months {
@@ -207,13 +121,8 @@ li#date2019 {
   text-align: center;
 }
 
-li[id^='2019']:not(.selected) {
-  display: none;
-}
-
-li[id^='2019'].selected {
-  display: block;
-}
+li[id^='2019']:not(.selected) { display: none; }
+li[id^='2019'].selected { display: block; }
 
 #months li.selected img {
   -webkit-transform: scale(1.1, 1.1);
@@ -243,7 +152,7 @@ li[id^='2019'].selected {
 }
 
 #months li h1 {
-  color: #fc0;
+  color: #FC0;
   font-size: 48px;
   text-align: center;
   text-shadow: #000 1px 1px 2px;
@@ -257,33 +166,18 @@ li[id^='2019'].selected {
   text-shadow: #000 1px 1px 2px;
 }
 
+.selected { display: block; }
+
 [id^='grad_'] {
   width: 500px;
   height: 80px;
   position: absolute;
 }
 
-[class^='Inktober-day'] {
-  display: none;
-  width: 110%;
-}
+#grad_top { top: 0; }
+#grad_bottom { bottom: 0; }
 
-.selected {
-  display: block;
-}
-
-#grad_top {
-  top: 0;
-}
-/* background: url('http://www.csslab.cl/ejemplos/timelinr/latest/images/grad_top.png') repeat-x; */
-
-#grad_bottom {
-  bottom: 0;
-}
-/* background: url('http://www.csslab.cl/ejemplos/timelinr/latest/images/grad_bottom.png') repeat-x; */
-
-#next,
-#prev {
+#next, #prev {
   position: absolute;
   left: 45%;
   font-size: 70px;
@@ -295,25 +189,12 @@ li[id^='2019'].selected {
   overflow: hidden;
 }
 
-#next:hover,
-#prev:hover {
-  background-position: 0 0;
-}
+#next:hover, #prev:hover { background-position: 0 0; }
 
-#next {
-  bottom: 0;
-}
-/* background-image: url('http://www.csslab.cl/ejemplos/timelinr/latest/images/next_v.png'); */
+#next { bottom: 0; }
+#prev { top: 0; }
 
-#prev {
-  top: 0;
-}
-/* background-image: url('http://www.csslab.cl/ejemplos/timelinr/latest/images/prev_v.png'); */
-
-#next.disabled,
-#prev.disabled {
-  opacity: 0.2;
-}
+#next.disabled, #prev.disabled { opacity: 0.2; }
 
 .Inktober {
   flex-flow: row wrap;
