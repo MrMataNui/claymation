@@ -1,5 +1,9 @@
 const baseSrc = (day: number, name: string): string =>
   `assets/images/Inktober/2019_Inktober_Day_${day}_${name}.jpg`;
+const img1 = (day: number, name: string): string =>
+  `assets/images/Inktober/2019_Inktober_Day_${day}_${name}_1.jpg`;
+const img2 = (day: number, name: string): string =>
+  `assets/images/Inktober/2019_Inktober_Day_${day}_${name}_2.jpg`;
 
 interface PromptDays {
   prompt: string;
@@ -46,8 +50,8 @@ export const prompts: AllPrompts = {
     prompt: 'Husky',
     description:
       'I couldn\'t think of a convincing way to do Husky, so I just did these two.',
-    imgSrc: 'assets/images/Inktober/2019_Inktober_Day_6_Husky_1.jpg',
-    imgSrc2: 'assets/images/Inktober/2019_Inktober_Day_6_Husky_2.jpg'
+    imgSrc: img1(6, 'Husky'),
+    imgSrc2: img2(6, 'Husky')
   },
   day7: {
     prompt: 'Enchanted',
@@ -72,22 +76,22 @@ export const prompts: AllPrompts = {
   },
   day11: {
     prompt: 'Snow',
-    description: '',
+    description: 'This is a simple snowflake',
     imgSrc: baseSrc(11, 'Snow')
   },
   day12: {
     prompt: 'Dragon',
-    description: '',
+    description: 'This allowed me to test crafting wings',
     imgSrc: baseSrc(12, 'Dragon')
   },
   day13: {
     prompt: 'Ash',
-    description: '',
+    description: 'I was trying for a decaying hand',
     imgSrc: baseSrc(13, 'Ash')
   },
   day14: {
     prompt: 'Overgrown',
-    description: '',
+    description: 'I was using day 13\'s prompt and adding plant-like additions',
     imgSrc: baseSrc(14, 'Overgrown')
   },
   day15: {
