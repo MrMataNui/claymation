@@ -14,6 +14,7 @@ body {
 	border-style: solid;
 	border-color: #FFF;
 	border-width: 1px;
+	z-index: 10;
 }
 
 #head-nav ul {
@@ -106,3 +107,5 @@ th {
   -webkit-transform: rotate(45deg);
   /* float: right; */
 }
+.sticky { position: fixed; top: 0; width: 69%; }
+.sticky + .content { padding-top: 60px; }
