@@ -7,16 +7,17 @@
       <span id="year-num">2019</span>
       <span id="following-year"> »</span>
       <ul>
-        <li *ngFor="let key of datesId.y2019">
-          <div id="{{key.id}}" (click)="monthClick($event)" [class.selected]="key.selected"> {{ key.name }} </div>
+        <li *ngFor="let monthName of datesId.y2019">
+          <div id="{{monthName.id}}" (click)="monthClick($event)" [class.selected]="monthName.selected">
+            {{ monthName.name }} </div>
         </li>
       </ul>
     </li>
   </ul>
   <ul id="months">
-    <ng-template ngFor let-key [ngForOf]="objectKeys(getMonths)">
-      <li id="{{monthId(key)}}" [class.selected]="key==='jan2019'">
-        <ng-template ngFor let-month [ngForOf]="getMonths[key]">
+    <ng-template ngFor let-monthName [ngForOf]="objectKeys(getMonths)">
+      <li id="{{monthId(monthName)}}" [class.selected]="monthName==='jan2019'">
+        <ng-template ngFor let-month [ngForOf]="getMonths[monthName]">
           <h2 [innerHTML]="month.date"></h2>
           <p [innerHTML]="month.desc"></p>
           <img id="{{month.srcId}}" src="{{month.src}}" alt="{{capital(month.srcId)}}" />

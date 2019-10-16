@@ -9,8 +9,8 @@
   <body>
     <nav id="head-nav">
       <ul>
-        <li *ngFor="let key of navLinks">
-          <a routerLink="/{{lowerCase(key)}}" routerLinkActive="active"> {{ key }} </a>
+        <li *ngFor="let linkName of navLinks">
+          <a routerLink="/{{lowerCase(linkName)}}" routerLinkActive="active"> {{ linkName }} </a>
         </li>
         <li class="right"> <a href="https://mrmatanui.github.io">Home</a> </li>
         <li class="right"> <a href="https://mrmatanui.github.io/martian/"> Martian Conlang </a> </li>
