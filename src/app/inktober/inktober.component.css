@@ -54,9 +54,6 @@ blockquote {
   padding: 0.5em 10px;
   quotes: '“' '”';
 }
-q, .quotes { quotes: '\2018''\2019'; }
-blockquote::before, q::before, .quotes::before { content: open-quote; }
-blockquote::after, q::after, .quotes::after { content: close-quote; }
 
 a, #dates li div {
   color: #FFC;

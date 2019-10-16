@@ -34,10 +34,6 @@ span[id$='-year'] { font-size: 120%; }
 [id^='four-armed-test'] { width: 40%; height: 35%; }
 img[id^='sea-creature'], img[id$='morgan'] { width: 50%; height: 35%; }
 
-q, .quotes { quotes: '\2018''\2019'; }
-q::before, .quotes::before { content: open-quote; }
-q::after, .quotes::after { content: close-quote; }
-
 a, #dates li div {
   color: #FFC;
   text-decoration: none;

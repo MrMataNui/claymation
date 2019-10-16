@@ -2,3 +2,6 @@ html {
   background-color: blueviolet;
   margin: auto;
 }
+q, .quotes { quotes: '‘' '’'; }
+blockquote::before, q::before, .quotes::before { content: open-quote; }
+blockquote::after, q::after, .quotes::after { content: close-quote; }
