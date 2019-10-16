@@ -8,38 +8,26 @@
       <span id="following-year"> »</span>
       <ul>
         <li *ngFor="let key of datesId.y2019">
-          <ng-template [ngIf]="key.selected" [ngIfElse]="notSelected">
-            <div id="{{key.id}}" (click)="monthClick($event)" class="selected"> {{ key.name }} </div>
-          </ng-template>
-          <ng-template #notSelected>
-            <div id="{{key.id}}" (click)="monthClick($event)"> {{ key.name }} </div>
-          </ng-template>
+          <div id="{{key.id}}" (click)="monthClick($event)" [className]="key.selected ? 'selected' : ''">
+            {{ key.name }}
+          </div>
         </li>
       </ul>
     </li>
   </ul>
   <ul id="months">
     <ng-template ngFor let-key [ngForOf]="objectKeys(getMonths)">
-      <ng-template [ngIf]="key==='jan2019'" [ngIfElse]="monthNotSelected">
-        <li id="{{monthId(key)}}" class="selected">
-          <h2 [innerHTML]="getMonths[key][0].date"></h2>
-          <p [innerHTML]="getMonths[key][0].desc"></p>
-          <img id="{{getMonths[key][0].srcId}}" src="{{getMonths[key][0].src}}" alt="" />
-        </li>
-      </ng-template>
-      <ng-template #monthNotSelected>
-        <li id="{{monthId(key)}}">
-          <ng-template ngFor let-month [ngForOf]="getMonths[key]">
-            <h2 [innerHTML]="month.date"></h2>
-            <p [innerHTML]="month.desc"></p>
-            <img id="{{month.srcId}}" src="{{month.src}}" alt="" />
-            <ng-template [ngIf]="month.desc2">
-              <p [innerHTML]="month.desc2"></p>
-              <img id="{{month.src2Id}}" src="{{month.src2}}" alt="" />
-            </ng-template>
+      <li id="{{monthId(key)}}" [className]="key==='jan2019' ? 'selected' : ''">
+        <ng-template ngFor let-month [ngForOf]="getMonths[key]">
+          <h2 [innerHTML]="month.date"></h2>
+          <p [innerHTML]="month.desc"></p>
+          <img id="{{month.srcId}}" src="{{month.src}}" alt="" />
+          <ng-template [ngIf]="month.desc2">
+            <p [innerHTML]="month.desc2"></p>
+            <img id="{{month.src2Id}}" src="{{month.src2}}" alt="" />
           </ng-template>
-        </li>
-      </ng-template>
+        </ng-template>
+      </li>
     </ng-template>
   </ul>
 </div>
