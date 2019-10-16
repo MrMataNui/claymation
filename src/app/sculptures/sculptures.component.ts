@@ -17,6 +17,14 @@ export class SculpturesComponent implements OnInit {
   queryAll = (item: string) => document.querySelectorAll(item);
   query = (item: string) => document.querySelector(item);
 
+  capital(name: string) {
+    const capitalizeFLetter = (item: string) => item.charAt(0).toUpperCase() + item.slice(1).toLowerCase();
+    const nameArr = name.replace(/-/g, ' ').split(' ');
+    // tslint:disable-next-line:forin
+    for (const i in nameArr) { nameArr[i] = capitalizeFLetter(nameArr[i]); }
+    return nameArr.join(' ');
+  }
+
   monthClick(event: any) {
     const getID = (item: string) => document.getElementById(item);
     const id = event.target.id;
