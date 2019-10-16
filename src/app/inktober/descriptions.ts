@@ -96,7 +96,7 @@ export const prompts: AllPrompts = {
   },
   day15: {
     prompt: 'Legend',
-    description: '',
+    description: 'I was going for Soul Eater\'s \'excalibur\'',
     imgSrc: baseSrc(15, 'Legend')
   },
   day16: {

@@ -12,7 +12,8 @@ const appRoutes: Routes = [
   { path: 'videos', component: VideosComponent },
   { path: 'inktober', component: InktoberComponent },
   { path: 'sculptures', component: SculpturesComponent },
-  { path: '', redirectTo: '/sculptures', pathMatch: 'full' }
+  { path: '', redirectTo: '/sculptures', pathMatch: 'full' },
+  { path: '**', redirectTo: '/sculptures', pathMatch: 'full' }
 ];
 
 @NgModule({
