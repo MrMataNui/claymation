@@ -101,7 +101,7 @@ export const prompts: AllPrompts = {
   },
   day16: {
     prompt: 'Wild',
-    description: '',
+    description: 'This was an exuse for me to start working on backgrounds',
     imgSrc: baseSrc(16, 'Wild')
   },
   day17: {

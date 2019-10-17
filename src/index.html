@@ -10,12 +10,25 @@
   </head>
   <body>
     <app-root></app-root>
+    <canvas class="background"></canvas>
+    <script src="assets/particles.min.js"></script>
+    <script>
+      window.onload = () => Particles.init({
+        selector: '.background',
+        maxParticles: 250,
+        speed: 1,
+        connectParticles: true,
+        minDistance: 150,
+        color: ['#FF0', '#0FF', '#F0F']
+      });
+
+    </script>
   </body>
 </html>
 <!--
 ng build --output-path docs --prod --base-href "https://MrMataNui.github.io/claymation/"
 ngh
 git add .
-git commit -m "Added more descriptive names for the html for loops"
+git commit -m "Added day 16 and particles.js"
 git push origin
 -->

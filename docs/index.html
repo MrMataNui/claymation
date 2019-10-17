@@ -7,15 +7,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="icon" type="image/x-icon" href="./assets/favicon.ico" />
     <link href="https://fonts.googleapis.com/css?family=Pacifico|Saira+Stencil+One&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.6f1203616c227ddb17b5.css"></head>
+  <link rel="stylesheet" href="styles.082b6369d5a92225245a.css"></head>
   <body>
     <app-root></app-root>
-  <script src="runtime-es2015.b948044840398824f16e.js" type="module"></script><script src="runtime-es5.b948044840398824f16e.js" nomodule defer></script><script src="polyfills-es5.f8b5a32bf736d11d106f.js" nomodule defer></script><script src="polyfills-es2015.d3e61f0dd2b58e518eca.js" type="module"></script><script src="main-es2015.d124842ff0c2affc4173.js" type="module"></script><script src="main-es5.d124842ff0c2affc4173.js" nomodule defer></script></body>
+    <canvas class="background"></canvas>
+    <script src="assets/particles.min.js"></script>
+    <script>
+      window.onload = () => Particles.init({
+        selector: '.background',
+        maxParticles: 250,
+        speed: 1,
+        connectParticles: true,
+        minDistance: 150,
+        color: ['#FF0', '#0FF', '#F0F']
+      });
+
+    </script>
+  <script src="runtime-es2015.b948044840398824f16e.js" type="module"></script><script src="runtime-es5.b948044840398824f16e.js" nomodule defer></script><script src="polyfills-es5.f8b5a32bf736d11d106f.js" nomodule defer></script><script src="polyfills-es2015.d3e61f0dd2b58e518eca.js" type="module"></script><script src="main-es2015.12700d910daef27d3cc3.js" type="module"></script><script src="main-es5.12700d910daef27d3cc3.js" nomodule defer></script></body>
 </html>
 <!--
 ng build --output-path docs --prod --base-href "https://MrMataNui.github.io/claymation/"
 ngh
 git add .
-git commit -m "Added more descriptive names for the html for loops"
+git commit -m "Added day 16 and particles.js"
 git push origin
 -->
