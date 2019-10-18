@@ -1,34 +1,33 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <meta charset="utf-8">
     <title>Claymation</title>
+    <meta charset="utf-8">
     <base href="https://MrMataNui.github.io/claymation/">
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="icon" type="image/x-icon" href="./assets/favicon.ico" />
     <link href="https://fonts.googleapis.com/css?family=Pacifico|Saira+Stencil+One&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.082b6369d5a92225245a.css"></head>
+  <link rel="stylesheet" href="styles.707aac76ea6002ca2bab.css"></head>
   <body>
     <app-root></app-root>
     <canvas class="background"></canvas>
     <script src="assets/particles.min.js"></script>
     <script>
       window.onload = () => Particles.init({
-        selector: '.background',
+        selector: 'canvas.background',
         maxParticles: 250,
-        speed: 1,
+				speed: 1.5,
         connectParticles: true,
         minDistance: 150,
-        color: ['#FF0', '#0FF', '#F0F']
+        color: ['#FF0', '#F0F', '#0FF']
       });
-
     </script>
-  <script src="runtime-es2015.b948044840398824f16e.js" type="module"></script><script src="runtime-es5.b948044840398824f16e.js" nomodule defer></script><script src="polyfills-es5.f8b5a32bf736d11d106f.js" nomodule defer></script><script src="polyfills-es2015.d3e61f0dd2b58e518eca.js" type="module"></script><script src="main-es2015.12700d910daef27d3cc3.js" type="module"></script><script src="main-es5.12700d910daef27d3cc3.js" nomodule defer></script></body>
+  <script src="runtime-es2015.b948044840398824f16e.js" type="module"></script><script src="runtime-es5.b948044840398824f16e.js" nomodule defer></script><script src="polyfills-es5.f8b5a32bf736d11d106f.js" nomodule defer></script><script src="polyfills-es2015.d3e61f0dd2b58e518eca.js" type="module"></script><script src="main-es2015.d7f0650d9a38ffd57d4a.js" type="module"></script><script src="main-es5.d7f0650d9a38ffd57d4a.js" nomodule defer></script></body>
 </html>
 <!--
 ng build --output-path docs --prod --base-href "https://MrMataNui.github.io/claymation/"
 ngh
 git add .
-git commit -m "Added day 16 and particles.js"
+git commit -m "Added day 17"
 git push origin
 -->

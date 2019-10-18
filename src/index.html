@@ -1,8 +1,8 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <meta charset="utf-8">
     <title>Claymation</title>
+    <meta charset="utf-8">
     <base href="/" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="icon" type="image/x-icon" href="./assets/favicon.ico" />
@@ -14,14 +14,13 @@
     <script src="assets/particles.min.js"></script>
     <script>
       window.onload = () => Particles.init({
-        selector: '.background',
+        selector: 'canvas.background',
         maxParticles: 250,
-        speed: 1,
+				speed: 1.5,
         connectParticles: true,
         minDistance: 150,
-        color: ['#FF0', '#0FF', '#F0F']
+        color: ['#FF0', '#F0F', '#0FF']
       });
-
     </script>
   </body>
 </html>
@@ -29,6 +28,6 @@
 ng build --output-path docs --prod --base-href "https://MrMataNui.github.io/claymation/"
 ngh
 git add .
-git commit -m "Added day 16 and particles.js"
+git commit -m "Added day 17"
 git push origin
 -->

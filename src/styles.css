@@ -1,7 +1,3 @@
-/* html { */
-  /* background: url('assets/general_background.png'); */
-  /* margin: auto; */
-/* } */
 q, .quotes { quotes: '‘' '’'; }
 blockquote::before, q::before, .quotes::before { content: open-quote; }
 blockquote::after, q::after, .quotes::after { content: close-quote; }

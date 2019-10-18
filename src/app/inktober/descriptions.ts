@@ -71,42 +71,42 @@ export const prompts: AllPrompts = {
   },
   day10: {
     prompt: 'Pattern',
-    description: 'I was going for a plaid design',
+    description: 'I was going for a plaid design.',
     imgSrc: baseSrc(10, 'Pattern')
   },
   day11: {
     prompt: 'Snow',
-    description: 'This is a simple snowflake',
+    description: 'This is a simple snowflake.',
     imgSrc: baseSrc(11, 'Snow')
   },
   day12: {
     prompt: 'Dragon',
-    description: 'This allowed me to test crafting wings',
+    description: 'This allowed me to test crafting wings.',
     imgSrc: baseSrc(12, 'Dragon')
   },
   day13: {
     prompt: 'Ash',
-    description: 'I was trying for a decaying hand',
+    description: 'I was trying for a decaying hand.',
     imgSrc: baseSrc(13, 'Ash')
   },
   day14: {
     prompt: 'Overgrown',
-    description: 'I was using day 13\'s prompt and adding plant-like additions',
+    description: 'I was using day 13\'s prompt and adding plant-like additions.',
     imgSrc: baseSrc(14, 'Overgrown')
   },
   day15: {
     prompt: 'Legend',
-    description: 'I was going for Soul Eater\'s <q>Excalibur</q>',
+    description: 'I was going for Soul Eater\'s <q>Excalibur</q>.',
     imgSrc: baseSrc(15, 'Legend')
   },
   day16: {
     prompt: 'Wild',
-    description: 'This was an exuse for me to start working on backgrounds',
+    description: 'This was an exuse for me to start working on backgrounds.',
     imgSrc: baseSrc(16, 'Wild')
   },
   day17: {
     prompt: 'Ornament',
-    description: '',
+    description: 'I used a snowman Christmas ornament to practice working with smaller details.',
     imgSrc: baseSrc(17, 'Ornament')
   },
   day18: {
