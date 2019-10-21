@@ -3,7 +3,7 @@ blockquote::before, q::before, .quotes::before { content: open-quote; }
 blockquote::after, q::after, .quotes::after { content: close-quote; }
 
 canvas.background {
-  background-color: #8A2BE2;
+  background-color: #666;
   background-attachment: fixed;
   position: fixed;
   top: 0; left: 0;
