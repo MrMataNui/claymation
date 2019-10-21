@@ -111,17 +111,18 @@ export const prompts: AllPrompts = {
   },
   day18: {
     prompt: 'Misfit',
-    description: '',
+    description: 'This is based on <q>Charlie-in-the-box</q> from <br /> \
+      <q>Rudolph the Red-Nosed Reindeer and the Island of Misfit Toys</q>',
     imgSrc: baseSrc(18, 'Misfit')
   },
   day19: {
     prompt: 'Sling',
-    description: '',
+    description: 'The only thing that I thought of is to do an arm sling',
     imgSrc: baseSrc(19, 'Sling')
   },
   day20: {
     prompt: 'Tread',
-    description: '',
+    description: 'It\'s based on the <q>Don\'t Tread On Me</q> flag from the American revolution',
     imgSrc: baseSrc(20, 'Tread')
   },
   day21: {
