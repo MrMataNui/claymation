@@ -10,6 +10,6 @@ export class VideosComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    // loadVideoById('J7Ms3Z_JhkY', 0);
   }
-
 }

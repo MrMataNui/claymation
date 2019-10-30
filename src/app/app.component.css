@@ -49,9 +49,6 @@ body {
 #head-nav li a:hover:not(.active) { background-color: #111; }
 #head-nav .active { background-color: #4CAF50; }
 
-.pacifico { font-family: 'Pacifico', cursive;}
-.saira-stencil { font-family: 'Saira Stencil One', cursive; }
-
 .dropdown {
   float: left;
   overflow: hidden;

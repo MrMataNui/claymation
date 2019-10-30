@@ -2,6 +2,16 @@ q, .quotes { quotes: '‘' '’'; }
 blockquote::before, q::before, .quotes::before { content: open-quote; }
 blockquote::after, q::after, .quotes::after { content: close-quote; }
 
+.pacifico { font-family: 'Pacifico', cursive; }
+.sirin-stencil { font-family: 'Sirin Stencil', cursive; }
+.saira-stencil-one { font-family: 'Saira Stencil One', cursive; }
+.srisakdi { font-family: 'Srisakdi', cursive; }
+.barriecito { font-family: 'Barriecito', cursive; }
+.beth-ellen { font-family: 'Beth Ellen', cursive; }
+.bungee-shade { font-family: 'Bungee Shade', cursive; }
+.libre-barcode-39 { font-family: 'Libre Barcode 39', cursive; }
+.megrim { font-family: 'Megrim', cursive; }
+
 canvas.background {
   background-color: #666;
   background-attachment: fixed;

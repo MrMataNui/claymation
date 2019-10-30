@@ -6,6 +6,8 @@
 .clearfix { overflow: auto; zoom: 1; }
 .container { display: -webkit-flex; display: flex; }
 
+#months li, h2 { font-family: 'Megrim', cursive; }
+
 .initial {
   -webkit-flex: initial;
   flex: initial;

@@ -1,21 +1,21 @@
 <div id="timeline">
   <div id="Inktober-definition">
-    <h2>Inktober</h2>
+    <h2 class="megrim">Inktober</h2>
     <blockquote>Every October, artists all over the world take on the Inktober drawing challenge by doing one
       ink drawing a day the entire month.</blockquote>
-    <span>- from <a href="https://inktober.com/" target="_blank">inktober.com</a></span>
+    <span class="megrim">- from <a href="https://inktober.com/" target="_blank">inktober.com</a></span>
   </div>
   <br />
-  <h2>Prompt list</h2>
+  <h2 class="megrim">Prompt list</h2>
   <br />
   <div id="AllWeeks">
     <ng-template ngFor let-weekNum [ngForOf]="objectKeys(getWeeks)">
       <br />
-      <h3 id="{{weekNum}}"> {{ weekNames(weekNum) }} </h3>
+      <h3 id="{{weekNum}}" class="megrim"> {{ weekNames(weekNum) }} </h3>
       <div class="{{weekNum}} Inktober flex">
         <div *ngFor="let dayNum of getWeeks[weekNum]">
           <div id="day-{{dayNum}}-Inktober" (click)="inktoberClick($event)">
-            <h3 id="Inktober-day-{{dayNum}}"> {{ dayNum }} </h3>
+            <h3 id="Inktober-day-{{dayNum}}" class="megrim"> {{ dayNum }} </h3>
           </div>
         </div>
       </div>
@@ -25,9 +25,9 @@
   <div id="description">
     <ng-template ngFor let-dayNum [ngForOf]="objectKeys(prompts)">
       <div class="{{inktoberClasses(dayNum)}}">
-        <p>{{ inktoberNames(dayNum) }}: <q>{{ prompts[dayNum].prompt }}</q></p>
+        <p class="megrim">{{ inktoberNames(dayNum) }}: <q>{{ prompts[dayNum].prompt }}</q></p>
         <br />
-        <p [innerHTML]="prompts[dayNum].description"></p>
+        <p class="megrim" [innerHTML]="prompts[dayNum].description"></p>
         <ng-template [ngIf]="prompts[dayNum].description">
           <br />
           <img id="Inktober-{{prompts[dayNum].prompt}}" alt="Inktober {{prompts[dayNum].prompt}}"

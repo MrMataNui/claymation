@@ -8,19 +8,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AppComponent implements OnInit {
   title = 'Claymation';
-  navLinks = ['Sculptures', 'Inktober' /* , 'Videos' */];
+  navLinks = [
+    'Sculptures',
+    'Inktober',
+    'Videos'
+  ];
+
   lowerCase = (item: string) => item.toLowerCase();
-  myFunction(navbar: HTMLElement, sticky: number) {
+  scrollFunction(navbar: HTMLElement, sticky: number) {
     if (window.pageYOffset >= sticky) {
       navbar.classList.add('sticky');
     } else {
       navbar.classList.remove('sticky');
     }
   }
-
   ngOnInit() {
     const navbar = document.getElementById('head-nav');
     const sticky = navbar.offsetTop;
-    window.onscroll = () => this.myFunction(navbar, sticky);
+    window.onscroll = () => this.scrollFunction(navbar, sticky);
   }
 }

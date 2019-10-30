@@ -1,7 +1,7 @@
 <h2>This is where I go through my claymation progress.</h2>
 <div id="timeline">
   <ul id="dates">
-    <li id="date2019">
+    <li id="date2019" class="megrim">
       <h2>Timeline</h2>
       <span id="previous-year">« </span>
       <span id="year-num">2019</span>
@@ -9,7 +9,8 @@
       <ul>
         <li *ngFor="let monthName of datesId.y2019">
           <div id="{{monthName.id}}" (click)="monthClick($event)" [class.selected]="monthName.selected">
-            {{ monthName.name }} </div>
+            {{ monthName.name }}
+					</div>
         </li>
       </ul>
     </li>
