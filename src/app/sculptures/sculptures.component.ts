@@ -32,7 +32,7 @@ export class SculpturesComponent implements OnInit {
           case 'dec': return 'Decenber';
         }
         break;
-        case 'type': return item.replace(/\w+ (\d+\w+)/, '$1');
+			case 'type': return item.replace(/\w+ (\d+\w+)/, '$1');
       }
   }
 

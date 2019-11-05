@@ -106,7 +106,7 @@ export const getMonths: GetMonths = {
   nov2019: [
     {
       date: 'November 4<sup>th</sup>',
-      desc: 'Star Guardian',
+      desc: 'I created a character called \'Star Guardian\' to build a character using a skeleton.',
       src: baseSrc('star-guardian'),
       srcId: 'star-guardian'
     }
