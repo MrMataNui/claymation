@@ -25,7 +25,7 @@
 .flex2 { -webkit-flex: 2; flex: 2; }
 
 span[id$='-year'] { font-size: 120%; }
-#dates div[id^='2019']:hover { border: 1px solid white; }
+#dates div[id^='20']:hover { border: 1px solid white; }
 
 /* #previous-year:hover, #following-year:hover { color: #FF0; cursor: pointer; } */
 #ice-climbers { width: 100%; height: 50%; }
@@ -34,7 +34,13 @@ span[id$='-year'] { font-size: 120%; }
 #sir-pine { width: 35%; height: 35%; }
 
 [id^='four-armed-test'] { width: 40%; height: 35%; }
-img[id^='sea-creature'], img[id$='morgan'] { width: 50%; height: 35%; }
+img[id^='sea-creature'],
+img[id^='star-guardian'],
+img[id$='morgan'] { width: 50%; height: 35%; }
+
+.none {
+  display: none;
+}
 
 a, #dates li div {
   color: #FFC;
@@ -54,6 +60,7 @@ a, #dates li div {
 
 ul h2,
 ul h3,
+ul h4,
 a:hover,
 a.selected,
 #dates li div:hover,

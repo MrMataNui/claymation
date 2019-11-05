@@ -12,14 +12,37 @@ export class SculpturesComponent implements OnInit {
   datesId = datesId;
   getMonths = getMonths;
 
-  monthId = (item: string) => item.replace(/(\w+)(2019)/, '$2$1');
+  regExp = (item: string): RegExp => new RegExp(item);
+  getYear = (item: string) => item.replace(/\w+(20\d\d)/, '$1');
+  getMonth = (item: string, getType: string) => {
+    switch (getType) {
+      case 'name':
+        switch (item.replace(/(\w{3})\d{4}/, '$1')) {
+          case 'jan': return 'January';
+          case 'feb': return 'February';
+          case 'mar': return 'March';
+          case 'apr': return 'April';
+          case 'may': return 'May';
+          case 'jun': return 'June';
+          case 'jul': return 'July';
+          case 'aug': return 'August';
+          case 'sep': return 'September';
+          case 'oct': return 'October';
+          case 'nov': return 'November';
+          case 'dec': return 'Decenber';
+        }
+        break;
+        case 'type': return item.replace(/\w+ (\d+\w+)/, '$1');
+      }
+  }
 
+  monthId = (item: string) => item.replace(/(\w+)(20\d\d)/, '$2$1');
   queryAll = (item: string) => document.querySelectorAll(item);
   query = (item: string) => document.querySelector(item);
 
   capital(name: string) {
     const capitalizeFLetter = (item: string) => item.charAt(0).toUpperCase() + item.slice(1).toLowerCase();
-    const nameArr = name.replace(/-/g, ' ').split(' ');
+    const nameArr = name.split('-');
     // tslint:disable-next-line:forin
     for (const i in nameArr) { nameArr[i] = capitalizeFLetter(nameArr[i]); }
     return nameArr.join(' ');
@@ -28,35 +51,52 @@ export class SculpturesComponent implements OnInit {
   monthClick(event: any) {
     const getID = (item: string) => document.getElementById(item);
     const id = event.target.id;
-    for (const datesItem of this.queryAll('#dates div')) {
-      datesItem.classList.remove('selected');
-    }
-    for (const monthsItem of this.queryAll('#months li')) {
-      monthsItem.classList.remove('selected');
-    }
+    for (const datesItem of this.queryAll('#dates div')) { datesItem.classList.remove('selected'); }
+    for (const monthsItem of this.queryAll('#months li')) { monthsItem.classList.remove('selected'); }
     getID(id).classList.add('selected');
     getID('months').children[id].classList.add('selected');
+    this.monthHide();
   }
 
   yearChange(event: any) {
-    const yearNum: Element = this.queryAll('#date2019 #year-num')[0];
+    const yearNum: Element = this.query('#date2019 #year-num');
     const date = event.target.id;
     const getYears = [2019, 2020];
     let getNumber: number = parseInt(yearNum.innerHTML.trim(), 10);
-    switch (date) {
-      case 'previous-year':
-        if (getYears.includes(getNumber - 1)) {
-          getNumber--;
-        }
-        break;
-      case 'following-year':
-        if (getYears.includes(getNumber + 1)) {
-          getNumber++;
-        }
-        break;
-    }
+
+    const previousCheck: boolean = (getYears.includes(getNumber - 1));
+    const followingCheck: boolean = (getYears.includes(getNumber + 1));
+    if (date === 'previous-year' && previousCheck) { getNumber--; }
+    if (date === 'following-year' && followingCheck) { getNumber++; }
+
     yearNum.innerHTML = getNumber.toString();
+    this.yearHide(`y${getNumber}`);
+  }
+
+  yearHide(yearNum: string) {
+    const yearDiv = this.queryAll('[id^="y20"]');
+    for (const divLoc of yearDiv) {
+      divLoc.classList.add('none');
+      if (divLoc.id === yearNum) {
+        divLoc.classList.remove('none');
+      }
+    }
+  }
+
+  monthHide() {
+    const monthDiv = this.queryAll('li[id^="20"]');
+    for (const divLoc of monthDiv) {
+      divLoc.classList.add('none');
+      if (/selected/.test(divLoc.classList.value)) {
+        divLoc.classList.remove('none');
+      }
+    }
   }
 
   ngOnInit() {}
+
+  ngAfterViewInit() {
+    this.yearHide('y2019');
+    this.monthHide();
+  }
 }

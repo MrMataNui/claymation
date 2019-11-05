@@ -2,7 +2,6 @@ interface AllDates {
   y2019: { id: string; name: string; selected?: boolean }[];
   y2020?: { id: string; name: string; selected?: boolean }[];
 }
-
 interface MonthFind {
   date: string;
   desc: string;
@@ -12,14 +11,18 @@ interface MonthFind {
   src2?: string;
   src2Id?: string;
 }
-
 interface GetMonths {
   jan2019: MonthFind[];
   mar2019: MonthFind[];
   may2019: MonthFind[];
   aug2019: MonthFind[];
   sep2019: MonthFind[];
+  nov2019: MonthFind[];
+  jan2020: MonthFind[];
+  feb2020: MonthFind[];
 }
+
+const baseSrc = (name: string) => `assets/images/${name}.jpg`;
 
 export const datesId: AllDates = {
   y2019: [
@@ -27,25 +30,26 @@ export const datesId: AllDates = {
     { id: '2019mar', name: 'March' },
     { id: '2019may', name: 'May' },
     { id: '2019aug', name: 'August' },
-    { id: '2019sep', name: 'September' }
+    { id: '2019sep', name: 'September' },
+    { id: '2019nov', name: 'November' }
+  ],
+  y2020: [
+    { id: '2020jan', name: 'January' },
+    { id: '2020feb', name: 'February' }
   ]
 };
-
-const baseSrc = (name: string) => `assets/images/${name}.jpg`;
-
 export const getMonths: GetMonths = {
   jan2019: [
     {
-      date: 'January 28',
-      desc:
-        'This is my attempt at <q>Popo</q> from the game <q>Ice Climbers</q>.',
+      date: 'January 28<sup>th</sup>',
+      desc: 'This is my attempt at <q>Popo</q> from the game <q>Ice Climbers</q>.',
       src: baseSrc('Ice Climbers/ice-climber'),
       srcId: 'ice-climbers'
     }
   ],
   mar2019: [
     {
-      date: 'March 15',
+      date: 'March 15<sup>th</sup>',
       desc: 'First draft of a pineapple man',
       src: baseSrc('pineapple-man'),
       srcId: 'pineapple-man'
@@ -53,7 +57,7 @@ export const getMonths: GetMonths = {
   ],
   may2019: [
     {
-      date: 'May 2',
+      date: 'May 2<sup>nd</sup>',
       desc: 'Updated arms of the pineapple man',
       src: baseSrc('pineapple-man2'),
       srcId: 'pineapple-man2',
@@ -62,7 +66,7 @@ export const getMonths: GetMonths = {
       src2Id: 'sir-pine'
     },
     {
-      date: 'May 29',
+      date: 'May 29<sup>th</sup>',
       desc: 'Started testing with four-armed characters',
       src: baseSrc('four-arm-progress'),
       srcId: 'four-armed-test'
@@ -70,13 +74,13 @@ export const getMonths: GetMonths = {
   ],
   aug2019: [
     {
-      date: 'August 5',
+      date: 'August 5<sup>th</sup>',
       desc: 'Finished the four-armed test character',
       src: baseSrc('four-arms'),
       srcId: 'four-armed-test2'
     },
     {
-      date: 'August 25',
+      date: 'August 25<sup>th</sup>',
       desc: 'Created a sea creature character',
       src: baseSrc('sea-creature'),
       srcId: 'sea-creature',
@@ -87,16 +91,40 @@ export const getMonths: GetMonths = {
   ],
   sep2019: [
     {
-      date: 'September 3',
+      date: 'September 3<sup>rd</sup>',
       desc: 'Added a character with a liquid underside (Morgan)',
       src: baseSrc('Morgan'),
       srcId: 'morgan'
     },
     {
-      date: 'September 26',
+      date: 'September 26<sup>th</sup>',
       desc: 'Redid Morgan with oven-bake clay',
       src: baseSrc('improved-Morgan'),
       srcId: 'improved-morgan'
+    }
+  ],
+  nov2019: [
+    {
+      date: 'November 4<sup>th</sup>',
+      desc: 'Star Guardian',
+      src: baseSrc('star-guardian'),
+      srcId: 'star-guardian'
+    }
+  ],
+  jan2020: [
+    {
+      date: 'January',
+      desc: 'Star Guardian',
+      src: baseSrc('star-guardian'),
+      srcId: 'star-guardian'
+    }
+  ],
+  feb2020: [
+    {
+      date: 'February',
+      desc: 'Star Guardian',
+      src: baseSrc('star-guardian'),
+      srcId: 'star-guardian'
     }
   ]
 };
