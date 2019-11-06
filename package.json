@@ -2,13 +2,13 @@
   "name": "claymation",
   "version": "0.0.0",
   "scripts": {
-    "ng": "ng",
     "start": "ng serve",
+    "lint": "ng lint --fix",
+    "ng": "ng",
     "clean": "rm -rf ./node_modules",
     "reinstall": "npm run clean && npm install",
-    "build": "ng build --output-path docs --prod --base-href \"https://MrMataNui.github.io/claymation/\"",
+    "build": "npm run lint && ng build --output-path docs --prod --base-href \"https://MrMataNui.github.io/claymation/\"",
     "test": "ng test",
-    "lint": "ng lint",
     "e2e": "ng e2e"
   },
   "private": true,

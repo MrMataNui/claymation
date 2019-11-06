@@ -2,16 +2,16 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-page-not-found',
-  templateUrl: './page-not-found.component.html',
-  styleUrls: ['./page-not-found.component.css']
+	selector: 'app-page-not-found',
+	templateUrl: './page-not-found.component.html',
+	styleUrls: ['./page-not-found.component.css']
 })
 export class PageNotFoundComponent implements OnInit {
-  constructor(private router: Router) {}
+	constructor(private router: Router) {}
 
-  routerUrl = this.router.url;
-  navLinks = ['Sculptures', 'Inktober', 'Videos'];
-  lowerCase = (item: string) => item.toLowerCase();
+	routerUrl = this.router.url;
+	navLinks = ['Sculptures', 'Inktober', 'Videos'];
+	lowerCase = (item: string) => item.toLowerCase();
 
-  ngOnInit() {}
+	ngOnInit() {}
 }

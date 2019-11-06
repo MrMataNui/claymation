@@ -1,35 +1,35 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <title> {{ title }} </title>
-    <base href="/conlang/" />
-    <link rel="icon" type="image/x-icon" href="../assets/favicon.ico" />
-  </head>
-  <body>
-    <nav id="head-nav">
-      <ul>
-        <li *ngFor="let linkName of navLinks">
-          <a routerLink="/{{lowerCase(linkName)}}" routerLinkActive="active">
+	<head>
+		<meta charset="utf-8" />
+		<title> {{ title }} </title>
+		<base href="/conlang/" />
+		<link rel="icon" type="image/x-icon" href="../assets/favicon.ico" />
+	</head>
+	<body>
+		<nav id="head-nav">
+			<ul>
+				<li *ngFor="let linkName of navLinks">
+					<a routerLink="/{{lowerCase(linkName)}}" routerLinkActive="active">
 						<b class="megrim"> {{ linkName }} </b>
 					</a>
-        </li>
-        <li class="right megrim">
+				</li>
+				<li class="right megrim">
 					<b> <a href="https://mrmatanui.github.io"> Home </a> </b>
-        </li>
-        <li class="right megrim">
+				</li>
+				<li class="right megrim">
 					<b> <a href="https://mrmatanui.github.io/martian/"> Martian Conlang </a> </b>
 				</li>
-        <li class="right Rborder">
+				<li class="right Rborder">
 					<a href="https://twitter.com/MrMataNui/" target="_blank"> Twitter </a>
 				</li>
-        <li class="right Lborder">
+				<li class="right Lborder">
 					<a href="https://www.reddit.com/user/MrMataNui/" target="_blank"> Reddit </a>
 				</li>
-      </ul>
-    </nav>
-    <h1 id="header" class="megrim"> MrMataNui's Claymation Progress </h1>
-    <hr /> <br />
-    <router-outlet></router-outlet>
-  </body>
+			</ul>
+		</nav>
+		<h1 id="header" class="megrim"> MrMataNui's Claymation Progress </h1>
+		<hr /> <br />
+		<router-outlet></router-outlet>
+	</body>
 </html>

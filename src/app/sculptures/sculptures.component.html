@@ -1,27 +1,27 @@
 <h2>This is where I go through my claymation progress.</h2>
 <div id="timeline">
-  <ul id="dates">
-    <li id="date2019" class="megrim">
-      <h2>Timeline</h2>
-      <b>
-        <span id="previous-year">« </span>
-        <span id="year-num">2019</span>
-        <span id="following-year"> »</span>
-      </b>
-    <ng-template ngFor let-yearNum [ngForOf]="objectKeys(datesId)">
-      <ul id="{{yearNum}}">
-        <ng-template ngFor let-monthName [ngForOf]="datesId[yearNum]">
+	<ul id="dates">
+		<li id="date2019" class="megrim">
+			<h2>Timeline</h2>
+			<b>
+				<span id="previous-year">« </span>
+				<span id="year-num">2019</span>
+				<span id="following-year"> »</span>
+			</b>
+		<ng-template ngFor let-yearNum [ngForOf]="objectKeys(datesId)">
+			<ul id="{{yearNum}}">
+				<ng-template ngFor let-monthName [ngForOf]="datesId[yearNum]">
 					<li>
 						<div id="{{monthName.id}}" (click)="monthClick($event)" [class.selected]="monthName.selected">
 							{{ monthName.name }}
 						</div>
 					</li>
-        </ng-template>
-      </ul>
-    </ng-template>
-    </li>
-  </ul>
-  <ul id="months">
+				</ng-template>
+			</ul>
+		</ng-template>
+		</li>
+	</ul>
+	<ul id="months">
 		<ng-template ngFor let-monthName [ngForOf]="objectKeys(getMonths)">
 			<ng-template [ngIf]="regExp('2019$').test(monthName)">
 				<li id="{{monthId(monthName)}}" [class.selected]="monthName==='jan2019'">
@@ -37,6 +37,6 @@
 					</ng-template>
 				</li>
 			</ng-template>
-    </ng-template>
-  </ul>
+		</ng-template>
+	</ul>
 </div>

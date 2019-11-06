@@ -9,16 +9,16 @@
 #months li, h2 { font-family: 'Megrim', cursive; }
 
 .initial {
-  -webkit-flex: initial;
-  flex: initial;
-  width: 200px;
-  min-width: 100px;
+	-webkit-flex: initial;
+	flex: initial;
+	width: 200px;
+	min-width: 100px;
 }
 
 .none {
-  -webkit-flex: none;
-  flex: none;
-  width: 200px;
+	-webkit-flex: none;
+	flex: none;
+	width: 200px;
 }
 
 .flex1 { -webkit-flex: 1; flex: 1; }
@@ -40,23 +40,23 @@ img[id^='star-guardian'],
 img[id$='morgan'] { width: 50%; height: 35%; }
 
 .none {
-  display: none;
+	display: none;
 }
 
 a, #dates li div {
-  color: #FFC;
-  text-decoration: none;
-  -webkit-transition: 0.5s;
-  -moz-transition: 0.5s;
-  -o-transition: 0.5s;
-  -ms-transition: 0.5s;
-  transition: 0.5s;
+	color: #FFC;
+	text-decoration: none;
+	-webkit-transition: 0.5s;
+	-moz-transition: 0.5s;
+	-o-transition: 0.5s;
+	-ms-transition: 0.5s;
+	transition: 0.5s;
 }
 
 #dates li div {
-  margin: 0 auto;
-  cursor: pointer;
-  border: 1px solid blueviolet;
+	margin: 0 auto;
+	cursor: pointer;
+	border: 1px solid blueviolet;
 }
 
 ul h2,
@@ -66,133 +66,133 @@ a:hover,
 a.selected,
 #dates li div:hover,
 #dates li div.selected {
-  color: #FC0;
+	color: #FC0;
 }
 
 h1, h2, h4, h5, h6 {
-  text-align: center;
-  color: #CCC;
-  text-shadow: #000 1px 1px 2px;
-  margin-bottom: 5px;
+	text-align: center;
+	color: #CCC;
+	text-shadow: #000 1px 1px 2px;
+	margin-bottom: 5px;
 }
 
 h1 { font-size: 18px; }
 h2 { font-size: 14px; }
 
 .sociales {
-  text-align: center;
-  margin-bottom: 20px;
+	text-align: center;
+	margin-bottom: 20px;
 }
 
 #timeline {
-  width: 50em;
-  overflow: hidden;
-  margin: 0 auto;
-  position: relative;
+	width: 50em;
+	overflow: hidden;
+	margin: 0 auto;
+	position: relative;
 }
 
 #dates {
-  width: 20em;
-  height: 600px;
-  overflow: hidden;
-  float: left;
+	width: 20em;
+	height: 600px;
+	overflow: hidden;
+	float: left;
 }
 
 #dates li {
-  list-style: none;
-  line-height: 100px;
-  font-size: 24px;
+	list-style: none;
+	line-height: 100px;
+	font-size: 24px;
 }
 
 #dates a, #dates div {
-  line-height: 38px;
-  padding-bottom: 10px;
+	line-height: 38px;
+	padding-bottom: 10px;
 }
 
 li#date2019, #dates .selected { font-size: 38px; }
 
 li#date2019 {
-  width: 8em;
-  color: #C0F;
+	width: 8em;
+	color: #C0F;
 }
 
 #months {
-  width: 400px;
-  overflow: hidden;
-  float: left;
+	width: 400px;
+	overflow: hidden;
+	float: left;
 }
 
 #months li {
-  list-style: none;
-  text-align: center;
+	list-style: none;
+	text-align: center;
 }
 
 li[id^='2019']:not(.selected) { display: none; }
 li[id^='2019'].selected { display: block; }
 
 #months li.selected img {
-  -webkit-transform: scale(1.1, 1.1);
-  -moz-transform: scale(1.1, 1.1);
-  -o-transform: scale(1.1, 1.1);
-  -ms-transform: scale(1.1, 1.1);
-  transform: scale(1.1, 1.1);
+	-webkit-transform: scale(1.1, 1.1);
+	-moz-transform: scale(1.1, 1.1);
+	-o-transform: scale(1.1, 1.1);
+	-ms-transform: scale(1.1, 1.1);
+	transform: scale(1.1, 1.1);
 }
 
 #months li img {
-  margin: 1em auto;
-  -ms-filter: 'progid:DXImageTransform.Microsoft.gradient(startColorstr=#00FFFFFF,endColorstr=#00FFFFFF)';
-  /* IE 8 */
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#00FFFFFF, endColorstr=#00FFFFFF);
-  /* IE 6 & 7 */
-  zoom: 1;
-  -webkit-transition: all 2s ease-in-out;
-  -moz-transition: all 2s ease-in-out;
-  -o-transition: all 2s ease-in-out;
-  -ms-transition: all 2s ease-in-out;
-  transition: all 2s ease-in-out;
-  -webkit-transform: scale(0.7, 0.7);
-  -moz-transform: scale(0.7, 0.7);
-  -o-transform: scale(0.7, 0.7);
-  -ms-transform: scale(0.7, 0.7);
-  transform: scale(0.7, 0.7);
+	margin: 1em auto;
+	-ms-filter: 'progid:DXImageTransform.Microsoft.gradient(startColorstr=#00FFFFFF,endColorstr=#00FFFFFF)';
+	/* IE 8 */
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#00FFFFFF, endColorstr=#00FFFFFF);
+	/* IE 6 & 7 */
+	zoom: 1;
+	-webkit-transition: all 2s ease-in-out;
+	-moz-transition: all 2s ease-in-out;
+	-o-transition: all 2s ease-in-out;
+	-ms-transition: all 2s ease-in-out;
+	transition: all 2s ease-in-out;
+	-webkit-transform: scale(0.7, 0.7);
+	-moz-transform: scale(0.7, 0.7);
+	-o-transform: scale(0.7, 0.7);
+	-ms-transform: scale(0.7, 0.7);
+	transform: scale(0.7, 0.7);
 }
 
 #months li h1 {
-  color: #FC0;
-  font-size: 48px;
-  text-align: center;
-  text-shadow: #000 1px 1px 2px;
+	color: #FC0;
+	font-size: 48px;
+	text-align: center;
+	text-shadow: #000 1px 1px 2px;
 }
 
 #months li p {
-  font-size: 14px;
-  margin: 10px 40px;
-  font-weight: normal;
-  line-height: 22px;
-  text-shadow: #000 1px 1px 2px;
+	font-size: 14px;
+	margin: 10px 40px;
+	font-weight: normal;
+	line-height: 22px;
+	text-shadow: #000 1px 1px 2px;
 }
 
 .selected { display: block; }
 
 [id^='grad_'] {
-  width: 500px;
-  height: 80px;
-  position: absolute;
+	width: 500px;
+	height: 80px;
+	position: absolute;
 }
 
 #grad_top { top: 0; }
 #grad_bottom { bottom: 0; }
 
 #next, #prev {
-  position: absolute;
-  left: 45%;
-  font-size: 70px;
-  width: 38px;
-  height: 22px;
-  background-position: 0 -44px;
-  background-repeat: no-repeat;
-  text-indent: -9999px;
-  overflow: hidden;
+	position: absolute;
+	left: 45%;
+	font-size: 70px;
+	width: 38px;
+	height: 22px;
+	background-position: 0 -44px;
+	background-repeat: no-repeat;
+	text-indent: -9999px;
+	overflow: hidden;
 }
 
 #next:hover, #prev:hover { background-position: 0 0; }
@@ -203,7 +203,7 @@ li[id^='2019'].selected { display: block; }
 #next.disabled, #prev.disabled { opacity: 0.2; }
 
 .Inktober {
-  flex-flow: row wrap;
-  justify-content: space-around;
-  align-items: center;
+	flex-flow: row wrap;
+	justify-content: space-around;
+	align-items: center;
 }
