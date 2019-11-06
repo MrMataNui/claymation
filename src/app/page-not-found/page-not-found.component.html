@@ -1,0 +1,11 @@
+<h3> Sorry, but <q class="db">{{ routerUrl }}</q> isn't a valid page </h3>
+<h4> Please select one of the selections in these options below </h4>
+<nav>
+  <ul>
+		<li *ngFor="let linkName of navLinks" [class.right]="linkName==='Videos'">
+			<a routerLink="/{{lowerCase(linkName)}}" routerLinkActive="active">
+				<b class="megrim"> {{ linkName }} </b>
+			</a>
+		</li>
+  </ul>
+</nav>

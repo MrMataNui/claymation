@@ -27,7 +27,6 @@
 				<li id="{{monthId(monthName)}}" [class.selected]="monthName==='jan2019'">
 					<h2> <i> {{ getYear(monthName) }} - {{ getMonth(monthName, 'name') }} </i> </h2>
 					<ng-template ngFor let-month [ngForOf]="getMonths[monthName]">
-						<!-- <h4> {{ getMonth(month.date, 'type') }} </h4> -->
 						<h4 [innerHTML]="getMonth(month.date, 'type')"></h4>
 						<p [innerHTML]="month.desc"></p>
 						<img id="{{month.srcId}}" src="{{month.src}}" alt="{{capital(month.srcId)}}" />
