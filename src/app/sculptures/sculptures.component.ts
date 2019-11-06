@@ -11,28 +11,32 @@ export class SculpturesComponent implements OnInit {
   objectKeys = Object.keys;
   datesId = datesId;
   getMonths = getMonths;
+  monthNames = {
+		jan: 'January',
+		feb: 'February',
+		mar: 'March',
+		apr: 'April',
+		may: 'May',
+		jun: 'June',
+		jul: 'July',
+		aug: 'August',
+		sep: 'September',
+		oct: 'October',
+		nov: 'November',
+		dec: 'Decenber'
+	};
 
   regExp = (item: string): RegExp => new RegExp(item);
   getYear = (item: string) => item.replace(/\w+(20\d\d)/, '$1');
   getMonth = (item: string, getType: string) => {
     switch (getType) {
-      case 'name':
-        switch (item.replace(/(\w{3})\d{4}/, '$1')) {
-          case 'jan': return 'January';
-          case 'feb': return 'February';
-          case 'mar': return 'March';
-          case 'apr': return 'April';
-          case 'may': return 'May';
-          case 'jun': return 'June';
-          case 'jul': return 'July';
-          case 'aug': return 'August';
-          case 'sep': return 'September';
-          case 'oct': return 'October';
-          case 'nov': return 'November';
-          case 'dec': return 'Decenber';
-        }
-        break;
-			case 'type': return item.replace(/\w+ (\d+\w+)/, '$1');
+			case 'month.date': return item.replace(/\w+ (\d+<sup>\w+<\/sup>)/, '$1');
+      case 'monthName':
+				for (let month in this.monthNames) {
+					if (month === item.replace(/(\w{3})\d{4}/, '$1')) {
+						return this.monthNames[month];
+					}
+				}
       }
   }
 

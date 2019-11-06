@@ -25,9 +25,9 @@
 		<ng-template ngFor let-monthName [ngForOf]="objectKeys(getMonths)">
 			<ng-template [ngIf]="regExp('2019$').test(monthName)">
 				<li id="{{monthId(monthName)}}" [class.selected]="monthName==='jan2019'">
-					<h2> <i> {{ getYear(monthName) }} - {{ getMonth(monthName, 'name') }} </i> </h2>
+					<h2> <i> {{ getYear(monthName) }} - {{ getMonth(monthName, 'monthName') }} </i> </h2>
 					<ng-template ngFor let-month [ngForOf]="getMonths[monthName]">
-						<h4 [innerHTML]="getMonth(month.date, 'type')"></h4>
+						<h4 [innerHTML]="getMonth(month.date, 'month.date')"></h4>
 						<p [innerHTML]="month.desc"></p>
 						<img id="{{month.srcId}}" src="{{month.src}}" alt="{{capital(month.srcId)}}" />
 						<ng-template [ngIf]="month.desc2">
