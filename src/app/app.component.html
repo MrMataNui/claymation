@@ -12,12 +12,14 @@
         <div class="megrim"> Links </div>
       </div>
       <div id="myLinks">
-        <a *ngFor="let linkName of navLinks" routerLink="/{{lowerCase(linkName)}}" routerLinkActive="active">
+        <a *ngFor="let linkName of navLinks" routerLink="/{{lowerCase(linkName)}}" routerLinkActive="active"
+          (click)="mobileLinkClick()">
           <b class="megrim"> {{ linkName }} </b>
         </a>
         <hr />
         <a class="megrim" href="https://mrmatanui.github.io/martian/">Martian Conlang</a>
         <a class="megrim" href="https://mrmatanui.github.io/">Home</a>
+        <hr />
         <a class="Rborder" href="https://twitter.com/MrMataNui/" target="_blank">Twitter</a>
         <a class="Lborder" href="https://www.reddit.com/user/MrMataNui/" target="_blank">Reddit</a>
       </div>

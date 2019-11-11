@@ -23,6 +23,7 @@ export class AppComponent implements OnInit {
 			navbar.classList.remove('sticky');
 		}
 	}
+
 	mobileLinks() {
 		const myLinks = this.getID('myLinks');
 		if (myLinks.style.display === 'block') {
@@ -30,6 +31,11 @@ export class AppComponent implements OnInit {
 		} else {
 			myLinks.style.display = 'block';
 		}
+	}
+
+	mobileLinkClick() {
+		 this.getID('myLinks')
+		 	.style.display = 'none';
 	}
 
 	ngOnInit() {
