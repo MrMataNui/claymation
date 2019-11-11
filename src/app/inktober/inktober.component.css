@@ -191,6 +191,6 @@ h2 { font-size: 14px; }
 and (max-device-width: 480px)
 and (orientation: portrait) {
 	#timeline { width: initial; }
-	[id$='-Inktober'] { padding: 0; }
+	[id$='-Inktober'] { padding: 0 0 1em 0; }
 	[id^='Week'] { margin-bottom: 1em; }
 }
