@@ -1,38 +1,35 @@
 <!doctype html>
 <html lang="en">
-	<head>
-		<title>Claymation</title>
-		<meta charset="utf-8">
-		<base href="https://MrMataNui.github.io/claymation/">
-		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<link rel="icon" type="image/x-icon" href="./assets/favicon.ico" />
-		<link rel="stylesheet"
-			href="https://fonts.googleapis.com/css?family=Barriecito|Beth+Ellen|Bungee+Shade|Libre+Barcode+39|Megrim|Pacifico|Saira+Stencil+One|Sirin+Stencil|Srisakdi&display=swap"
-		/>
-	<link rel="stylesheet" href="styles.5dcf4815fb7363eb126e.css"></head>
-	<body>
-		<app-root></app-root>
-		<canvas class="background"></canvas>
-		<script src="assets/particles.min.js"></script>
-		<script>
-			window.onload = () => Particles.init({
-				selector: 'canvas.background',
-				maxParticles: 250,
-				speed: 1.5,
-				connectParticles: true,
-				minDistance: 150,
-				color: ['#F00', '#0F0', '#00F']
-				// color: ['#83E22B', '#8A2BE2']
-				// color: ['#2BE28A', '#E28A2B']
-			});
-		</script>
-	<script src="runtime-es2015.b948044840398824f16e.js" type="module"></script><script src="runtime-es5.b948044840398824f16e.js" nomodule defer></script><script src="polyfills-es5.f8b5a32bf736d11d106f.js" nomodule defer></script><script src="polyfills-es2015.d3e61f0dd2b58e518eca.js" type="module"></script><script src="main-es2015.7dd0030a8139ded35d30.js" type="module"></script><script src="main-es5.7dd0030a8139ded35d30.js" nomodule defer></script></body>
+  <head>
+    <title>Claymation</title>
+    <meta charset="utf-8">
+    <base href="https://MrMataNui.github.io/claymation/">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/x-icon" href="./assets/favicon.ico" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Barriecito|Beth+Ellen|Bungee+Shade|Libre+Barcode+39|Megrim|Pacifico|Saira+Stencil+One|Sirin+Stencil|Srisakdi&display=swap" />
+  <link rel="stylesheet" href="styles.0e036f7fc7a08ba10186.css"></head>
+  <body>
+    <app-root></app-root>
+    <canvas class="background"></canvas>
+    <script src="assets/particles.min.js"></script>
+    <script>
+      window.onload = () => Particles.init({
+        selector: 'canvas.background',
+        maxParticles: 100,
+        speed: 1.5,
+        connectParticles: true,
+        minDistance: 150,
+        color: ['#F00', '#0F0', '#00F']
+        // color: ['#83E22B', '#8A2BE2']
+        // color: ['#2BE28A', '#E28A2B']
+      });
+    </script>
+  <script src="runtime-es2015.b948044840398824f16e.js" type="module"></script><script src="runtime-es5.b948044840398824f16e.js" nomodule defer></script><script src="polyfills-es5.f8b5a32bf736d11d106f.js" nomodule defer></script><script src="polyfills-es2015.d3e61f0dd2b58e518eca.js" type="module"></script><script src="main-es2015.f4a4d1569630cf3876c9.js" type="module"></script><script src="main-es5.f4a4d1569630cf3876c9.js" nomodule defer></script></body>
 </html>
 <!--
-npm run lint
 npm run build
 ngh
-git add .
-git commit -m "used ts-lint"
-git push origin
+npm run push
 -->

@@ -1,0 +1,6 @@
+
+@media screen
+and (max-device-width: 480px)
+and (orientation: portrait) {
+	iframe { width: 100%; }
+}

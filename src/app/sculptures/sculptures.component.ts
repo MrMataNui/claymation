@@ -8,6 +8,7 @@ import { datesId, getMonths } from './description';
 })
 export class SculpturesComponent implements OnInit {
 	constructor() {}
+
 	objectKeys = Object.keys;
 	datesId = datesId;
 	getMonths = getMonths;
@@ -26,30 +27,35 @@ export class SculpturesComponent implements OnInit {
 		dec: 'Decenber'
 	};
 
-	regExp = (item: string): RegExp => new RegExp(item);
-	getYear = (item: string) => item.replace(/(\w{3})(20\d\d)/, '$1');
-	getMonth = (item: string, getType: string) => {
-		switch (getType) {
-			case 'month.date': return item.replace(/\w+ (\d+<sup>\w+<\/sup>)/, '$1');
-			case 'monthName':
-				for (const month in this.monthNames) {
-					if (month === item.replace(/(\w{3})(20\d\d)/, '$1')) {
-						return this.monthNames[month];
-					}
-				}
-			}
+	Rgx(item: string, title: string, replacement: string) {
+		const rgx = ['\\w{3}', '20\\d\\d'];
+		let sendRegex: string;
+		switch (title) {
+			case 'year': sendRegex = `${rgx[0]}(${rgx[1]})`; break;
+			case 'month': sendRegex = `(${rgx[0]})${rgx[1]}`; break;
+			case 'monthId': sendRegex = `(${rgx[0]})(${rgx[1]})`; break;
+		}
+		return item.replace(RegExp(sendRegex), replacement);
 	}
 
-	monthId = (item: string) => item.replace(/(\w+)(20\d\d)/, '$2$1');
 	queryAll = (item: string) => document.querySelectorAll(item);
 	query = (item: string) => document.querySelector(item);
 
-	capital(name: string) {
-		const capitalizeFLetter = (item: string) => item.charAt(0).toUpperCase() + item.slice(1).toLowerCase();
-		const nameArr = name.split('-');
-		// tslint:disable-next-line:forin
-		for (const i in nameArr) { nameArr[i] = capitalizeFLetter(nameArr[i]); }
-		return nameArr.join(' ');
+	capitalizeFLetter = (item: string) => item.charAt(0).toUpperCase() + item.slice(1).toLowerCase();
+	capital = (name: string) => name.split('-').map(this.capitalizeFLetter).join(' ');
+	regExp = (item: string): RegExp => new RegExp(item);
+
+	monthId = (item: string) => this.Rgx(item, 'monthId', '$2$1');
+	getYear = (item: string) => this.Rgx(item, 'year', '$1');
+	getMonth(item: string, getType: string) {
+		switch (getType) {
+			case 'month.date': return item.replace(/\w+ (\d+<sup>\w+<\/sup>)/, '$1');
+			case 'monthName':
+				const findMonth = Object.entries(this.monthNames);
+				for (const [key, month] of findMonth) {
+					if (key === this.Rgx(item, 'month', '$1')) { return month; }
+				}
+		}
 	}
 
 	monthClick(event: any) {
@@ -59,13 +65,13 @@ export class SculpturesComponent implements OnInit {
 		for (const monthsItem of this.queryAll('#months li')) { monthsItem.classList.remove('selected'); }
 		getID(id).classList.add('selected');
 		getID('months').children[id].classList.add('selected');
-		this.monthHide();
+		this.getHide({ month: true });
 	}
 
 	yearChange(event: any) {
 		const yearNum: Element = this.query('#date2019 #year-num');
-		const date = event.target.id;
-		const getYears = [2019, 2020];
+		const date: string = event.target.id;
+		const getYears: number[] = [2019, 2020];
 		let getNumber: number = parseInt(yearNum.innerHTML.trim(), 10);
 
 		const previousCheck: boolean = (getYears.includes(getNumber - 1));
@@ -74,24 +80,17 @@ export class SculpturesComponent implements OnInit {
 		if (date === 'following-year' && followingCheck) { getNumber++; }
 
 		yearNum.innerHTML = getNumber.toString();
-		this.yearHide(`y${getNumber}`);
+		this.getHide({ year: `y${getNumber}` });
 	}
 
-	yearHide(yearNum: string) {
-		const yearDiv = this.queryAll('[id^="y20"]');
-		for (const divLoc of yearDiv) {
+	getHide(timeType: { year?: string; month?: boolean; }) {
+		const getId: string = (timeType.year) ? '[id^="y20"]' : 'li[id^="20"]';
+		const getDiv = this.queryAll(getId);
+		for (const divLoc of getDiv) {
 			divLoc.classList.add('none');
-			if (divLoc.id === yearNum) {
+			if (timeType.year && timeType.year === divLoc.id) {
 				divLoc.classList.remove('none');
-			}
-		}
-	}
-
-	monthHide() {
-		const monthDiv = this.queryAll('li[id^="20"]');
-		for (const divLoc of monthDiv) {
-			divLoc.classList.add('none');
-			if (/selected/.test(divLoc.classList.value)) {
+			} else if (timeType.month && /selected/.test(divLoc.classList.value)) {
 				divLoc.classList.remove('none');
 			}
 		}
@@ -100,7 +99,7 @@ export class SculpturesComponent implements OnInit {
 	ngOnInit() {}
 
 	ngAfterViewInit() {
-		this.yearHide('y2019');
-		this.monthHide();
+		this.getHide({ year: 'y2019' });
+		this.getHide({ month: true });
 	}
 }

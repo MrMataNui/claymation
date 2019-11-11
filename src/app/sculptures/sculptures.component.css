@@ -89,6 +89,9 @@ h2 { font-size: 14px; }
 	overflow: hidden;
 	margin: 0 auto;
 	position: relative;
+	display: flex;
+	flex-direction: row;
+	flex-direction: column;
 }
 
 #dates {
@@ -202,8 +205,13 @@ li[id^='2019'].selected { display: block; }
 
 #next.disabled, #prev.disabled { opacity: 0.2; }
 
-.Inktober {
-	flex-flow: row wrap;
-	justify-content: space-around;
-	align-items: center;
+@media screen
+and (max-device-width: 480px)
+and (orientation: portrait) {
+	#timeline { width: initial; }
+	#dates, #dates li, #months { width: initial; }
+	#dates {
+		height: initial;
+		margin-bottom: 2em;
+	}
 }

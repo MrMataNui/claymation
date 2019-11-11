@@ -14,6 +14,7 @@ export class AppComponent implements OnInit {
 		'Videos'
 	];
 
+	getID = (item: string) => document.getElementById(item);
 	lowerCase = (item: string) => item.toLowerCase();
 	scrollFunction(navbar: HTMLElement, sticky: number) {
 		if (window.pageYOffset >= sticky) {
@@ -22,6 +23,15 @@ export class AppComponent implements OnInit {
 			navbar.classList.remove('sticky');
 		}
 	}
+	mobileLinks() {
+		const myLinks = this.getID('myLinks');
+		if (myLinks.style.display === 'block') {
+			myLinks.style.display = 'none';
+		} else {
+			myLinks.style.display = 'block';
+		}
+	}
+
 	ngOnInit() {
 		const navbar = document.getElementById('head-nav');
 		const sticky = navbar.offsetTop;

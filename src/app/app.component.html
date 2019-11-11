@@ -1,35 +1,51 @@
 <!doctype html>
 <html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<title> {{ title }} </title>
-		<base href="/conlang/" />
-		<link rel="icon" type="image/x-icon" href="../assets/favicon.ico" />
-	</head>
-	<body>
-		<nav id="head-nav">
-			<ul>
-				<li *ngFor="let linkName of navLinks">
-					<a routerLink="/{{lowerCase(linkName)}}" routerLinkActive="active">
-						<b class="megrim"> {{ linkName }} </b>
-					</a>
-				</li>
-				<li class="right megrim">
-					<b> <a href="https://mrmatanui.github.io"> Home </a> </b>
-				</li>
-				<li class="right megrim">
-					<b> <a href="https://mrmatanui.github.io/martian/"> Martian Conlang </a> </b>
-				</li>
-				<li class="right Rborder">
-					<a href="https://twitter.com/MrMataNui/" target="_blank"> Twitter </a>
-				</li>
-				<li class="right Lborder">
-					<a href="https://www.reddit.com/user/MrMataNui/" target="_blank"> Reddit </a>
-				</li>
-			</ul>
-		</nav>
-		<h1 id="header" class="megrim"> MrMataNui's Claymation Progress </h1>
-		<hr /> <br />
-		<router-outlet></router-outlet>
-	</body>
+  <head>
+    <meta charset="utf-8" />
+    <title> {{ title }} </title>
+    <base href="/conlang/" />
+    <link rel="icon" type="image/x-icon" href="../assets/favicon.ico" />
+  </head>
+  <body>
+    <nav id="mobile-nav">
+      <div id="link-loc">
+        <div class="megrim"> Links </div>
+      </div>
+      <div id="myLinks">
+        <a *ngFor="let linkName of navLinks" routerLink="/{{lowerCase(linkName)}}" routerLinkActive="active">
+          <b class="megrim"> {{ linkName }} </b>
+        </a>
+        <hr />
+        <a class="megrim" href="https://mrmatanui.github.io/martian/">Martian Conlang</a>
+        <a class="megrim" href="https://mrmatanui.github.io/">Home</a>
+        <a class="Rborder" href="https://twitter.com/MrMataNui/" target="_blank">Twitter</a>
+        <a class="Lborder" href="https://www.reddit.com/user/MrMataNui/" target="_blank">Reddit</a>
+      </div>
+      <a id="show-nav" class="icon" (click)="mobileLinks()"> <i class="fa fa-bars"></i> </a>
+    </nav>
+    <nav id="head-nav">
+      <ul>
+        <li *ngFor="let linkName of navLinks">
+          <a routerLink="/{{lowerCase(linkName)}}" routerLinkActive="active">
+            <b class="megrim"> {{ linkName }} </b>
+          </a>
+        </li>
+        <li class="right megrim">
+          <b> <a href="https://mrmatanui.github.io"> Home </a> </b>
+        </li>
+        <li class="right megrim">
+          <b> <a href="https://mrmatanui.github.io/martian/"> Martian Conlang </a> </b>
+        </li>
+        <li class="right Rborder">
+          <a href="https://twitter.com/MrMataNui/" target="_blank"> Twitter </a>
+        </li>
+        <li class="right Lborder">
+          <a href="https://www.reddit.com/user/MrMataNui/" target="_blank"> Reddit </a>
+        </li>
+      </ul>
+    </nav>
+    <h1 id="header" class="megrim"> MrMataNui's Claymation Progress </h1>
+    <hr /> <br />
+    <router-outlet></router-outlet>
+  </body>
 </html>
