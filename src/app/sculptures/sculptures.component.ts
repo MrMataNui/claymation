@@ -27,15 +27,14 @@ export class SculpturesComponent implements OnInit {
 		dec: 'Decenber'
 	};
 
-	Rgx(item: string, title: string, replacement: string) {
-		const rgx = ['\\w{3}', '20\\d\\d'];
-		let sendRegex: string;
+	Rgx(item: string, title: string) {
+		let replacement: string;
 		switch (title) {
-			case 'year': sendRegex = `${rgx[0]}(${rgx[1]})`; break;
-			case 'month': sendRegex = `(${rgx[0]})${rgx[1]}`; break;
-			case 'monthId': sendRegex = `(${rgx[0]})(${rgx[1]})`; break;
+			case 'year': replacement = '$2'; break;
+			case 'month': replacement = '$1'; break;
+			case 'monthId': replacement = '$2$1'; break;
 		}
-		return item.replace(RegExp(sendRegex), replacement);
+		return item.replace(/(\w{3})(20\d\d)/, replacement);
 	}
 
 	queryAll = (item: string) => document.querySelectorAll(item);
@@ -43,17 +42,17 @@ export class SculpturesComponent implements OnInit {
 
 	capitalizeFLetter = (item: string) => item.charAt(0).toUpperCase() + item.slice(1).toLowerCase();
 	capital = (name: string) => name.split('-').map(this.capitalizeFLetter).join(' ');
-	regExp = (item: string): RegExp => new RegExp(item);
+	regex = (item: string): RegExp => new RegExp(item);
 
-	monthId = (item: string) => this.Rgx(item, 'monthId', '$2$1');
-	getYear = (item: string) => this.Rgx(item, 'year', '$1');
+	monthId = (item: string) => this.Rgx(item, 'monthId');
+	getYear = (item: string) => this.Rgx(item, 'year');
 	getMonth(item: string, getType: string) {
 		switch (getType) {
 			case 'month.date': return item.replace(/\w+ (\d+<sup>\w+<\/sup>)/, '$1');
 			case 'monthName':
 				const findMonth = Object.entries(this.monthNames);
 				for (const [key, month] of findMonth) {
-					if (key === this.Rgx(item, 'month', '$1')) { return month; }
+					if (key === this.Rgx(item, 'month')) { return month; }
 				}
 		}
 	}
@@ -85,8 +84,7 @@ export class SculpturesComponent implements OnInit {
 
 	getHide(timeType: { year?: string; month?: boolean; }) {
 		const getId: string = (timeType.year) ? '[id^="y20"]' : 'li[id^="20"]';
-		const getDiv = this.queryAll(getId);
-		for (const divLoc of getDiv) {
+		for (const divLoc of this.queryAll(getId)) {
 			divLoc.classList.add('none');
 			if (timeType.year && timeType.year === divLoc.id) {
 				divLoc.classList.remove('none');

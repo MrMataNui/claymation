@@ -20,18 +20,28 @@ export class InktoberComponent implements OnInit {
 
 	queryAll = (item: string) => document.querySelectorAll(item);
 
-	inktoberClasses = (item: string): string => item.replace(/(day)(\d+)/, 'Inktober-$1-$2');
-	inktoberNames = (item: string): string => item.replace(/(day)(\d+)/, 'The prompt for $1 $2');
+	inktoberTest = (item: string, prompt: string): string => {
+		if (/(day)0(\d)/.test(item)) {
+			return item.replace(/(day)0(\d)/, prompt);
+		} else {
+			return item.replace(/(day)(\d+)/, prompt);
+		}
+	}
+	inktoberClasses = (item: string): string => this.inktoberTest(item, 'Inktober-$1-$2');
+	inktoberNames = (item: string): string => this.inktoberTest(item, 'The prompt for $1 $2');
 	weekNames = (name: string): string => name.replace(/(Week)(\d+)/, '$1 $2');
 
 	inktoberClick(event: any) {
-		const id: string = event.target.children[0]
+		const id: string = (event.target.children[0])
 			? event.target.children[0].id
 			: event.target.id;
 
-		let getItem: Element;
-		for (getItem of this.queryAll('[class^=Inktober-day]')) { getItem.classList.remove('selected'); }
-		for (getItem of this.queryAll(`div.${id}`)) { getItem.classList.add('selected'); }
+		for (const getItem of this.queryAll('[class^=Inktober-day]')) {
+			getItem.classList.remove('selected');
+		}
+		for (const getItem of this.queryAll(`div.${id}`)) {
+			getItem.classList.add('selected');
+		}
 	}
 
 	ngOnInit() {}

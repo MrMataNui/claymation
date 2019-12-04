@@ -1,42 +1,42 @@
 <h2>This is where I go through my claymation progress.</h2>
 <div id="timeline">
-	<ul id="dates">
-		<li id="date2019" class="megrim">
-			<h2>Timeline</h2>
-			<b>
-				<span id="previous-year">« </span>
-				<span id="year-num">2019</span>
-				<span id="following-year"> »</span>
-			</b>
-		<ng-template ngFor let-yearNum [ngForOf]="objectKeys(datesId)">
-			<ul id="{{yearNum}}">
-				<ng-template ngFor let-monthName [ngForOf]="datesId[yearNum]">
-					<li>
-						<div id="{{monthName.id}}" (click)="monthClick($event)" [class.selected]="monthName.selected">
-							{{ monthName.name }}
-						</div>
-					</li>
-				</ng-template>
-			</ul>
-		</ng-template>
-		</li>
-	</ul>
-	<ul id="months">
-		<ng-template ngFor let-monthName [ngForOf]="objectKeys(getMonths)">
-			<ng-template [ngIf]="regExp('2019$').test(monthName)">
-				<li id="{{monthId(monthName)}}" [class.selected]="monthName==='jan2019'">
-					<h2> <i> {{ getYear(monthName) }} - {{ getMonth(monthName, 'monthName') }} </i> </h2>
-					<ng-template ngFor let-month [ngForOf]="getMonths[monthName]">
-						<h4 [innerHTML]="getMonth(month.date, 'month.date')"></h4>
-						<p [innerHTML]="month.desc"></p>
-						<img id="{{month.srcId}}" src="{{month.src}}" alt="{{capital(month.srcId)}}" />
-						<ng-template [ngIf]="month.desc2">
-							<p> {{ month.desc2 }} </p>
-							<img id="{{month.src2Id}}" src="{{month.src2}}" alt="{{capital(month.src2Id)}}" />
-						</ng-template>
-					</ng-template>
-				</li>
-			</ng-template>
-		</ng-template>
-	</ul>
+  <ul id="dates">
+    <li id="date2019" class="megrim">
+      <h2>Timeline</h2>
+      <b>
+        <span id="previous-year">« </span>
+        <span id="year-num">2019</span>
+        <span id="following-year"> »</span>
+      </b>
+      <ng-template ngFor let-yearNum [ngForOf]="objectKeys(datesId)">
+        <ul id="{{yearNum}}">
+          <ng-template ngFor let-monthName [ngForOf]="datesId[yearNum]">
+            <li>
+              <div id="{{monthName.id}}" (click)="monthClick($event)" [class.selected]="monthName.selected">
+                {{ monthName.name }}
+              </div>
+            </li>
+          </ng-template>
+        </ul>
+      </ng-template>
+    </li>
+  </ul>
+  <ul id="months">
+    <ng-template ngFor let-monthName [ngForOf]="objectKeys(getMonths)">
+      <ng-template [ngIf]="regex('2019$').test(monthName)">
+        <li id="{{monthId(monthName)}}" [class.selected]="monthName==='jan2019'">
+          <h2> <i> {{ getYear(monthName) }} - {{ getMonth(monthName, 'monthName') }} </i> </h2>
+          <ng-template ngFor let-month [ngForOf]="getMonths[monthName]">
+            <h4 [innerHTML]="getMonth(month.date, 'month.date')"></h4>
+            <p [innerHTML]="month.desc"></p>
+            <img id="{{month.srcId}}" src="{{month.src}}" alt="{{capital(month.srcId)}}" />
+            <ng-template [ngIf]="month.desc2">
+              <p [innerHTML]="month.desc2"></p>
+              <img id="{{month.src2Id}}" src="{{month.src2}}" alt="{{capital(month.src2Id)}}" />
+            </ng-template>
+          </ng-template>
+        </li>
+      </ng-template>
+    </ng-template>
+  </ul>
 </div>

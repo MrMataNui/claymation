@@ -1,4 +1,4 @@
-interface AllDates {
+export interface AllDates {
 	y2019: { id: string; name: string; selected?: boolean }[];
 	y2020?: { id: string; name: string; selected?: boolean }[];
 }

@@ -2,8 +2,10 @@
   <a target="_blank" href="https://www.youtube.com/channel/UCcOV18QlsZNHCvBVwgE-qOA"> My Youtube Ckannel. </a>
 </h3>
 <div id="videos">
-  <h3 class="megrim">This is my first practice video</h3>
-  <iframe height="315" width="560" frameborder="0" src="https://www.youtube.com/embed/UEgYQPAcB3k"
-    allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-  <br />
+  <ng-template ngFor let-video [ngForOf]="videos">
+    <h3 class="megrim"> {{ video.desc }} </h3>
+    <iframe [src]="sanitize(contextUrl, video.src)" width="560" height="315" frameborder="0"
+      allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    <br />
+  </ng-template>
 </div>
