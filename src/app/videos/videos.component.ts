@@ -1,6 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
-import { SecurityContext } from '@angular/core';
 
 @Component({
 	selector: 'app-videos',
@@ -8,14 +6,7 @@ import { SecurityContext } from '@angular/core';
 	styleUrls: ['./videos.component.css']
 })
 export class VideosComponent implements OnInit {
-
-	sanitize: SafeResourceUrl;
-	contextUrl: number;
-	constructor(private sanitizer: DomSanitizer) {
-		this.sanitize = this.sanitizer.sanitize;
-		this.contextUrl = SecurityContext.URL;
-	}
-
+	constructor() {}
 	videos = [
 		{
 			desc: 'This is my most recet video',

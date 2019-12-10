@@ -11,7 +11,13 @@ Before(() => {
 	app.beforeHand();
  });
 
-Given('I am on the home page', () => app.nav('/'));
+Given('I am on the {word} page', (location: string) => {
+	if (location === 'home') {
+		app.nav('/');
+	} else {
+		app.nav(`/${location}`);
+	}
+});
 
 When('I do nothing', () => {});
 
@@ -29,8 +35,8 @@ Then('should render title', () => {
 		.equal('MrMataNui\'s Claymation Progress');
 });
 
-Then('the navbar should have 7 links', () => {
-	expect($$('#myLinks a b'))
+Then('the navbar should have {int} links', (num: number) => {
+	expect($$('#myLinks a'))
 		.to.eventually
-		.have.lengthOf(3);
+		.have.lengthOf(num);
 });

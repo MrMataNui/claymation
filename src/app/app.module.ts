@@ -8,6 +8,7 @@ import { VideosComponent } from './videos/videos.component';
 import { InktoberComponent } from './inktober/inktober.component';
 import { SculpturesComponent } from './sculptures/sculptures.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { SafePipe } from './videos/video.modal';
 
 const appRoutes: Routes = [
 	{ path: 'videos', component: VideosComponent },
@@ -24,6 +25,7 @@ const appRoutes: Routes = [
 			RouterModule.forRoot(appRoutes)
 		],
 		declarations: [
+			SafePipe,
 			AppComponent,
 			VideosComponent,
 			InktoberComponent,

@@ -1,4 +1,4 @@
-import { Given, Then, Before, When } from 'cucumber';
+import { Then, Before, When } from 'cucumber';
 import { $, ElementFinder, ElementArrayFinder } from 'protractor';
 import { AppPage } from '../pages/app';
 
@@ -12,8 +12,6 @@ Before(() => {
 	app.beforeHand();
 	AllWeeks = $('#AllWeeks');
  });
-
-Given('I am on the inktober page', () => app.nav('/inktober'));
 
 Then('I should see the header', () => {
 	expect($('#header').getText())
@@ -38,11 +36,13 @@ Then('there should be 21 days', () => {
 		.have.lengthOf(21);
 });
 
-When('I click on day 1', () => {
-	$('#day-1-Inktober #Inktober-day-1').click();
+When('I click on day {int}', (dayNum: number) => {
+	$(`#day-${dayNum}-Inktober #Inktober-day-${dayNum}`).click();
 });
 
-Then('that day\'s image should be displayed', () => {
+Then('day {int}\'s image should be displayed', (dayNum: number) => {
+	const inktoberDay = $(`#description`).$(`.Inktober-day-${dayNum}`);
+	app.hasClass(inktoberDay, 'selected', true);
 	AllWeeks
 		.$$('[class^=Week]')
 		.$$('div')
@@ -52,12 +52,13 @@ Then('that day\'s image should be displayed', () => {
 				expect(textNum).to.be.a('number');
 			});
 		});
-	// const inktober1 = await $('.Inktober-day-1').$('.selected')
+	app.visibility(inktoberDay.$('img#Inktober-Ring'));
+	// const inktober1 = await inktoberDay.$('.selected')
 	// 	.getText().then(item => {
 	// 		console.log('item', item);
 	// 		return item;
 	// 	});
 	// console.log('inktober1', inktober1);
-	// expect(Inktober1.$('img#Inktober-Ring'))
+	// expect(inktober1.$('img#Inktober-Ring'))
 	// 	.to.eventually.exist;
 });
