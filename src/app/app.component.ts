@@ -8,11 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AppComponent implements OnInit {
 	title = 'Claymation';
-	navLinks = [
-		'Sculptures',
-		'Inktober',
-		'Videos'
-	];
+	navLinks = ['Sculptures', 'Inktober', 'Videos'];
 
 	getID = (item: string) => document.getElementById(item);
 	lowerCase = (item: string) => item.toLowerCase();

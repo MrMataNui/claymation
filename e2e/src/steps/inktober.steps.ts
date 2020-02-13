@@ -36,13 +36,14 @@ Then('there should be 21 days', () => {
 		.have.lengthOf(21);
 });
 
-When('I click on day {int}', (dayNum: number) => {
-	$(`#day-${dayNum}-Inktober #Inktober-day-${dayNum}`).click();
+When('I click on day {int}', (int: number) => {
+	$(`#day-${int}-Inktober #Inktober-day-${int}`).click();
 });
 
-Then('day {int}\'s image should be displayed', (dayNum: number) => {
-	const inktoberDay = $(`#description`).$(`.Inktober-day-${dayNum}`);
-	app.hasClass(inktoberDay, 'selected', true);
+Then('day {int}\'s image should be displayed', (int: number) => {
+	let inktoberDay = $(`#description`).$(`.Inktober-day-${int}`);
+	inktoberDay.getAttribute('class')
+		.then(classList => { app.isSelected(classList, true); });
 	AllWeeks
 		.$$('[class^=Week]')
 		.$$('div')
@@ -53,12 +54,15 @@ Then('day {int}\'s image should be displayed', (dayNum: number) => {
 			});
 		});
 	app.visibility(inktoberDay.$('img#Inktober-Ring'));
-	// const inktober1 = await inktoberDay.$('.selected')
-	// 	.getText().then(item => {
-	// 		console.log('item', item);
-	// 		return item;
-	// 	});
+	inktoberDay.$('.selected')
+		.getText().then(item => {
+			console.log('item', item);
+			return item;
+		});
+	inktoberDay = inktoberDay.$('.selected').$('img#Inktober-Ring');
 	// console.log('inktober1', inktober1);
-	// expect(inktober1.$('img#Inktober-Ring'))
-	// 	.to.eventually.exist;
+	// tslint:disable-next-line:no-unused-expression
+	expect(inktoberDay)
+		.to.eventually.exist;
 });
+// https://play.howstuffworks.com/quiz/what-kind-wizard-are-you?utm_source=share-copy&utm_medium=referral

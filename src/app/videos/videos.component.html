@@ -1,11 +1,22 @@
 <h3 class="megrim">
-  <a target="_blank" href="https://www.youtube.com/channel/UCcOV18QlsZNHCvBVwgE-qOA"> My Youtube Ckannel. </a>
+  <a id="youtube" target="_blank" href="https://www.youtube.com/channel/UCcOV18QlsZNHCvBVwgE-qOA">My Youtube Channel</a>
 </h3>
-<div id="videos">
-  <ng-template ngFor let-video [ngForOf]="videos">
-    <h3 class="megrim"> {{ video.desc }} </h3>
-    <iframe [src]="video.src | safe" width="560" height="315" frameborder="0"
-      allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-    <br />
-  </ng-template>
+<div class="flex-grid">
+  <div id="playlists">
+    <ng-template ngFor let-playlist [ngForOf]="playlists">
+      <h3 class="megrim"> {{ playlist.desc }} </h3>
+      <iframe [src]="playlist.src | safe" width="width" height="height" frameborder="0"
+        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      <br />
+    </ng-template>
+  </div>
+  <!-- <hr /> -->
+  <div id="videos">
+    <ng-template ngFor let-video [ngForOf]="videos">
+      <h3 class="megrim"> {{ video.desc }} </h3>
+      <iframe [src]="video.src | safe" width="width" height="height" frameborder="0"
+        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      <br />
+    </ng-template>
+  </div>
 </div>

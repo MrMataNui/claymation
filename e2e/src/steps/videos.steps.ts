@@ -11,8 +11,9 @@ Before(() => {
 	app.beforeHand();
 });
 
-Then('there should be {int} videos', (num: number) => {
-	expect($$('#videos iframe'))
+Then('there should be {int} {word}', (int: number, word: string) => {
+	const pluralCheck = (/s$/.test(word)) ? word : word + 's';
+	expect($$(`#${pluralCheck} iframe`))
 		.to.eventually
-		.have.lengthOf(num);
+		.have.lengthOf(int);
 });

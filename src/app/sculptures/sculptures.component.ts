@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { datesId, getMonths } from './description';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
 	selector: 'app-sculptures',
@@ -7,7 +8,12 @@ import { datesId, getMonths } from './description';
 	styleUrls: ['./sculptures.component.css']
 })
 export class SculpturesComponent implements OnInit {
-	constructor() {}
+	yearNum: number;
+	yearStr: string;
+	parentRouteId: number;
+	private sub: any;
+
+	constructor(private router: Router, private route: ActivatedRoute) {}
 
 	objectKeys = Object.keys;
 	datesId = datesId;
@@ -34,7 +40,7 @@ export class SculpturesComponent implements OnInit {
 			case 'month': replacement = '$1'; break;
 			case 'monthId': replacement = '$2$1'; break;
 		}
-		return item.replace(/(\w{3})(20\d\d)/, replacement);
+		return item.replace(/(\w{3})(20\d{2})/, replacement);
 	}
 
 	queryAll = (item: string) => document.querySelectorAll(item);
@@ -52,7 +58,9 @@ export class SculpturesComponent implements OnInit {
 			case 'monthName':
 				const findMonth = Object.entries(this.monthNames);
 				for (const [key, month] of findMonth) {
-					if (key === this.Rgx(item, 'month')) { return month; }
+					if (key === this.Rgx(item, 'month')) {
+						return month;
+					}
 				}
 		}
 	}
@@ -60,44 +68,44 @@ export class SculpturesComponent implements OnInit {
 	monthClick(event: any) {
 		const getID = (item: string) => document.getElementById(item);
 		const id = event.target.id;
-		for (const datesItem of this.queryAll('#dates div')) { datesItem.classList.remove('selected'); }
-		for (const monthsItem of this.queryAll('#months li')) { monthsItem.classList.remove('selected'); }
+		const removeClass = (item: string) => {
+			for (const newItem of this.queryAll(item)) {
+				newItem.classList.remove('selected');
+			}
+		};
+		removeClass('#dates div');
+		removeClass('#months li');
 		getID(id).classList.add('selected');
 		getID('months').children[id].classList.add('selected');
 		this.getHide({ month: true });
 	}
 
-	yearChange(event: any) {
-		const yearNum: Element = this.query('#date2019 #year-num');
-		const date: string = event.target.id;
-		const getYears: number[] = [2019, 2020];
-		let getNumber: number = parseInt(yearNum.innerHTML.trim(), 10);
-
-		const previousCheck: boolean = (getYears.includes(getNumber - 1));
-		const followingCheck: boolean = (getYears.includes(getNumber + 1));
-		if (date === 'previous-year' && previousCheck) { getNumber--; }
-		if (date === 'following-year' && followingCheck) { getNumber++; }
-
-		yearNum.innerHTML = getNumber.toString();
-		this.getHide({ year: `y${getNumber}` });
-	}
-
 	getHide(timeType: { year?: string; month?: boolean; }) {
 		const getId: string = (timeType.year) ? '[id^="y20"]' : 'li[id^="20"]';
 		for (const divLoc of this.queryAll(getId)) {
+			const yearCheck: boolean = (timeType.year === divLoc.id);
+			const monthCheck: boolean = /selected/.test(divLoc.classList.value);
 			divLoc.classList.add('none');
-			if (timeType.year && timeType.year === divLoc.id) {
-				divLoc.classList.remove('none');
-			} else if (timeType.month && /selected/.test(divLoc.classList.value)) {
-				divLoc.classList.remove('none');
+			switch (true) {
+				case timeType.year && yearCheck:
+				case timeType.month && monthCheck:
+					divLoc.classList.remove('none');
 			}
 		}
 	}
 
-	ngOnInit() {}
+	ngOnInit() {
+		this.sub = this.route
+			.params.subscribe(params => {
+				this.yearNum = +params.year;
+				this.yearStr = `y${params.year}`;
+			});
+	}
+
+	ngOnDestroy() { this.sub.unsubscribe(); }
 
 	ngAfterViewInit() {
-		this.getHide({ year: 'y2019' });
+		this.getHide({ year: this.yearStr });
 		this.getHide({ month: true });
 	}
 }

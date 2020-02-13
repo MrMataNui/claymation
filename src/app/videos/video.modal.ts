@@ -9,10 +9,11 @@ export interface FindYT {
 	setConfig?: (a: any) => void;
 	Player?: (a: any, b: any) => void;
 }
+
 @Pipe({ name: 'safe' })
 export class SafePipe implements PipeTransform {
 	constructor(private sanitizer: DomSanitizer) {}
-	transform(url) {
+	transform(url: string) {
 		return this.sanitizer.bypassSecurityTrustResourceUrl(url);
 	}
 }

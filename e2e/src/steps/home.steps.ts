@@ -11,11 +11,11 @@ Before(() => {
 	app.beforeHand();
  });
 
-Given('I am on the {word} page', (location: string) => {
-	if (location === 'home') {
-		app.nav('/');
-	} else {
-		app.nav(`/${location}`);
+Given('I am on the {word} page', (word: string) => {
+	switch (word) {
+		case 'home': app.nav('/'); break;
+		case 'Sculpture': app.nav('/sculpture/2019'); break;
+		default: app.nav(`/${word}`); break;
 	}
 });
 
@@ -29,14 +29,8 @@ Then('I should see the title', () => {
 		.equal('Claymation');
 });
 
-Then('should render title', () => {
-	expect($('#header').getText())
-		.to.eventually
-		.equal('MrMataNui\'s Claymation Progress');
-});
-
-Then('the navbar should have {int} links', (num: number) => {
+Then('the navbar should have {int} links', (int: number) => {
 	expect($$('#myLinks a'))
 		.to.eventually
-		.have.lengthOf(num);
+		.have.lengthOf(int);
 });

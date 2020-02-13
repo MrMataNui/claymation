@@ -100,7 +100,8 @@ h2 { font-size: 14px; }
 	float: left;
 }
 
-#dates li {
+#dates li,
+#dates #date2019 {
 	list-style: none;
 	line-height: 100px;
 	font-size: 24px;
@@ -111,9 +112,9 @@ h2 { font-size: 14px; }
 	padding-bottom: 10px;
 }
 
-li#date2019, #dates .selected { font-size: 38px; }
+#date2019, #dates .selected { font-size: 38px; }
 
-li#date2019 {
+#date2019 {
 	width: 8em;
 	color: #C0F;
 }
@@ -183,6 +184,9 @@ li[id^='2019'].selected { display: block; }
 	position: absolute;
 }
 
+/* .year-select { padding: 0.5em 0 0.5em !important; } */
+/* .year-select a { color: #C0F; } */
+.year-select { color: #C0F; }
 #grad_top { top: 0; }
 #grad_bottom { bottom: 0; }
 
@@ -209,7 +213,10 @@ li[id^='2019'].selected { display: block; }
 and (max-device-width: 480px)
 and (orientation: portrait) {
 	#timeline { width: initial; flex-direction: column; }
-	#dates, #dates li, #months { width: initial; margin: initial; }
+	#dates,
+	#dates #date2019,
+	#dates li,
+	#months { width: initial; margin: initial; }
 	#dates {
 		height: initial;
 		margin-bottom: 2em;

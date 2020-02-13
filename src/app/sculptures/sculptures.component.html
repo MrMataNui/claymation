@@ -1,30 +1,28 @@
 <h2>This is where I go through my claymation progress.</h2>
 <div id="timeline">
-  <ul id="dates">
-    <li id="date2019" class="megrim">
+  <div id="dates">
+    <div id="date2019" class="megrim">
       <h2>Timeline</h2>
-      <b>
-        <span id="previous-year">« </span>
-        <span id="year-num">2019</span>
-        <span id="following-year"> »</span>
-      </b>
-      <ng-template ngFor let-yearNum [ngForOf]="objectKeys(datesId)">
-        <ul id="{{yearNum}}">
-          <ng-template ngFor let-monthName [ngForOf]="datesId[yearNum]">
-            <li>
-              <div id="{{monthName.id}}" (click)="monthClick($event)" [class.selected]="monthName.selected">
-                {{ monthName.name }}
-              </div>
-            </li>
-          </ng-template>
-        </ul>
-      </ng-template>
-    </li>
-  </ul>
+      <p>
+        <a class="year-select" [routerLink]="['../2019']">«2019»</a>
+        <!-- &nbsp;
+        <a class="year-select" [routerLink]="['../2020']">«2020»</a> -->
+      </p>
+      <ul id="{{yearStr}}">
+        <ng-template ngFor let-monthName [ngForOf]="datesId[yearStr]">
+          <li>
+            <div id="{{monthName.id}}" (click)="monthClick($event)" [class.selected]="monthName.selected">
+              {{ monthName.name }}
+            </div>
+          </li>
+        </ng-template>
+      </ul>
+    </div>
+  </div>
   <ul id="months">
     <ng-template ngFor let-monthName [ngForOf]="objectKeys(getMonths)">
-      <ng-template [ngIf]="regex('2019$').test(monthName)">
-        <li id="{{monthId(monthName)}}" [class.selected]="monthName==='jan2019'">
+      <ng-template [ngIf]="regex(yearNum+'$').test(monthName)">
+        <li id="{{monthId(monthName)}}" [class.selected]="regex('(jan|feb)'+yearNum).test(monthName)">
           <h2> <i> {{ getYear(monthName) }} - {{ getMonth(monthName, 'monthName') }} </i> </h2>
           <ng-template ngFor let-month [ngForOf]="getMonths[monthName]">
             <h4 [innerHTML]="getMonth(month.date, 'month.date')"></h4>

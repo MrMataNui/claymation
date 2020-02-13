@@ -23,7 +23,6 @@ interface GetMonths {
 	aug2019: MonthFind[];
 	sep2019: MonthFind[];
 	nov2019: MonthFind[];
-	jan2020: MonthFind[];
 	feb2020: MonthFind[];
 }
 
@@ -39,10 +38,10 @@ export const datesId: AllDates = {
 		{ id: '2019nov', name: 'November' }
 	],
 	y2020: [
-		{ id: '2020jan', name: 'January' },
-		{ id: '2020feb', name: 'February' }
+		{ id: '2020feb', name: 'February', selected: true },
 	]
 };
+
 export const getMonths: GetMonths = {
 	jan2019: [
 		{
@@ -112,14 +111,6 @@ export const getMonths: GetMonths = {
 		{
 			date: 'November 4<sup>th</sup>',
 			desc: 'I created a character called \'Star Guardian\' to build a character using a skeleton.',
-			src: baseSrc('star-guardian'),
-			srcId: 'star-guardian'
-		}
-	],
-	jan2020: [
-		{
-			date: 'January',
-			desc: 'Star Guardian',
 			src: baseSrc('star-guardian'),
 			srcId: 'star-guardian'
 		}

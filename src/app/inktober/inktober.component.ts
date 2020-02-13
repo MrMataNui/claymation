@@ -21,11 +21,9 @@ export class InktoberComponent implements OnInit {
 	queryAll = (item: string) => document.querySelectorAll(item);
 
 	inktoberTest = (item: string, prompt: string): string => {
-		if (/(day)0(\d)/.test(item)) {
-			return item.replace(/(day)0(\d)/, prompt);
-		} else {
-			return item.replace(/(day)(\d+)/, prompt);
-		}
+		const regex = (/(day)0(\d)/.test(item))
+			? /(day)0(\d)/ : /(day)(\d+)/;
+		return item.replace(regex, prompt);
 	}
 	inktoberClasses = (item: string): string => this.inktoberTest(item, 'Inktober-$1-$2');
 	inktoberNames = (item: string): string => this.inktoberTest(item, 'The prompt for $1 $2');

@@ -4,3 +4,14 @@ and (max-device-width: 480px)
 and (orientation: portrait) {
 	iframe { width: 100%; }
 }
+#youtube { color: #AAA; text-decoration: underline overline; }
+#youtube:hover { color: #FC0; }
+.flex-grid {
+  display: flex;
+ 	flex-flow: row wrap;
+	justify-content: space-around;
+}
+#playlists, #videos {
+	flex: 0 45%;
+	border: 1px solid #AAA;
+}

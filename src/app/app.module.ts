@@ -13,8 +13,8 @@ import { SafePipe } from './videos/video.modal';
 const appRoutes: Routes = [
 	{ path: 'videos', component: VideosComponent },
 	{ path: 'inktober', component: InktoberComponent },
-	{ path: 'sculptures', component: SculpturesComponent },
-	{ path: '', redirectTo: '/sculptures', pathMatch: 'full' },
+	{ path: 'sculptures/:year', component: SculpturesComponent },
+	{ path: '', pathMatch: 'full', redirectTo: '/sculptures/2019' },
 	{ path: '**', component: PageNotFoundComponent }
 ];
 

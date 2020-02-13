@@ -12,10 +12,18 @@
         <div class="megrim"> Links </div>
       </div>
       <div id="myLinks">
-        <a *ngFor="let linkName of navLinks" routerLink="/{{lowerCase(linkName)}}" routerLinkActive="active"
-          (click)="mobileLinkClick()">
-          <b class="megrim"> {{ linkName }} </b>
-        </a>
+        <ng-template ngFor let-linkName [ngForOf]="navLinks">
+          <ng-template [ngIf]="linkName!=='Sculptures'" [ngIfElse]="Sculptures">
+            <a routerLink="/{{lowerCase(linkName)}}" routerLinkActive="active">
+              <b class="megrim"> {{ linkName }} </b>
+            </a>
+          </ng-template>
+          <ng-template #Sculptures>
+            <a routerLink="/sculptures/2019" routerLinkActive="active">
+              <b class="megrim"> {{ linkName }} </b>
+            </a>
+          </ng-template>
+        </ng-template>
         <hr />
         <a class="megrim" href="https://mrmatanui.github.io/martian/">Martian Conlang</a>
         <a class="megrim" href="https://mrmatanui.github.io/">Home</a>
@@ -28,9 +36,16 @@
     <nav id="head-nav">
       <ul>
         <li *ngFor="let linkName of navLinks">
-          <a routerLink="/{{lowerCase(linkName)}}" routerLinkActive="active">
-            <b class="megrim"> {{ linkName }} </b>
-          </a>
+          <ng-template [ngIf]="linkName!=='Sculptures'" [ngIfElse]="Sculptures">
+            <a routerLink="/{{lowerCase(linkName)}}" routerLinkActive="active">
+              <b class="megrim"> {{ linkName }} </b>
+            </a>
+          </ng-template>
+          <ng-template #Sculptures>
+            <a routerLink="/sculptures/2019" routerLinkActive="active">
+              <b class="megrim"> {{ linkName }} </b>
+            </a>
+          </ng-template>
         </li>
         <li class="right megrim">
           <b> <a href="https://mrmatanui.github.io"> Home </a> </b>
